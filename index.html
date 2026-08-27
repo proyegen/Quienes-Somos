@@ -243,6 +243,83 @@
             color: #555;
         }
 
+
+        /* =========================
+           QUIÉNES SOMOS
+        ========================= */
+
+        .about-section {
+            background: #f8fafc;
+        }
+
+        .about-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            max-width: 900px;
+            margin: 0 auto 45px;
+            text-align: center;
+        }
+
+        .about-text p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 18px;
+        }
+
+        .about-text strong {
+            color: #111827;
+        }
+
+        .mission-vision {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        .info-box {
+            flex: 1;
+            max-width: 500px;
+            background: white;
+            padding: 38px 35px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            border-top: 4px solid #f59e0b;
+            transition: 0.3s;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .info-icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .info-box h3 {
+            font-size: 24px;
+            color: #111827;
+            margin-bottom: 18px;
+        }
+
+        .info-box p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .info-box strong {
+            color: #111827;
+        }
+
+        
         /* =========================
            SERVICIOS
         ========================= */
@@ -435,6 +512,20 @@
                 padding: 65px 7%;
             }
 
+            .mission-vision {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .info-box {
+                width: 100%;
+                max-width: 500px;
+            }
+
+            .about-text {
+                text-align: left;
+            }
+            
             .section h2 {
 
                 font-size: 30px;
@@ -557,21 +648,78 @@
      QUIÉNES SOMOS
 ========================= -->
 
-<section class="section" id="nosotros">
+<section class="section about-section" id="nosotros">
 
     <h2>Quiénes somos</h2>
 
-    <p class="section-intro">
+    <div class="about-content">
 
-        En <strong>Proyegen S.A.C.</strong> desarrollamos proyectos
-        integrales utilizando sistemas constructivos modernos y
-        eficientes.
+        <div class="about-text">
 
-        Nuestro objetivo es brindar soluciones que combinen
-        funcionalidad, calidad y una adecuada ejecución,
-        adaptándonos a las necesidades de cada cliente.
+            <p>
+                <strong>PROYEGEN S.A.C.</strong> es una empresa peruana
+                especializada en <strong>construcción en seco, acabados
+                y obras integrales</strong>.
+            </p>
 
-    </p>
+            <p>
+                Contamos con amplia experiencia en el desarrollo de
+                proyectos de arquitectura y construcción, acompañando
+                cada etapa del proyecto, desde la planificación hasta
+                la entrega final.
+            </p>
+
+            <p>
+                Nuestro compromiso es brindar soluciones que integren
+                <strong>calidad, seguridad, sostenibilidad y eficiencia</strong>,
+                generando valor y confianza en cada uno de nuestros clientes.
+            </p>
+
+        </div>
+
+
+        <div class="mission-vision">
+
+
+            <div class="info-box">
+
+                <div class="info-icon">🎯</div>
+
+                <h3>Misión</h3>
+
+                <p>
+                    Brindar soluciones de construcción en
+                    <strong>sistema Drywall y obras integrales</strong>,
+                    con altos estándares de calidad, eficiencia y
+                    responsabilidad, satisfaciendo las necesidades
+                    de nuestros clientes y contribuyendo al cuidado
+                    del medio ambiente.
+                </p>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-icon">🏆</div>
+
+                <h3>Visión</h3>
+
+                <p>
+                    Ser una empresa líder y reconocida por brindar
+                    <strong>servicios sostenibles de construcción</strong>,
+                    destacando por la calidad, la seguridad, el cuidado
+                    del medio ambiente y el compromiso de nuestro equipo
+                    humano, cumpliendo con excelencia y puntualidad
+                    cada proyecto.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
 
 </section>
 
