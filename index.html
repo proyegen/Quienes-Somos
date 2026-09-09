@@ -45,17 +45,25 @@
             box-shadow: 0 2px 15px rgba(0,0,0,0.15);
         }
 
-        .logo h1 {
-            font-size: 26px;
-            letter-spacing: 1.5px;
+        .logo {
+          display: flex;
+          align-items: center;
+          gap: 15px;
         }
 
-        .logo p {
-            font-size: 13px;
-            margin-top: 5px;
-            color: #d1d5db;
-        }
+       .logo img {
+          width: 70px;
+          height: 70px;
+          object-fit: contain;
+          border-radius: 5px;
+       } 
 
+      .logo p {
+          font-size: 15px;
+          margin-top: 5px;
+          color: #d1d5db;
+       }
+      
         nav {
             display: flex;
             align-items: center;
@@ -555,13 +563,15 @@
 
 <header>
 
-    <div class="logo">
+  <div class="logo">
 
-        <h1>PROYEGEN S.A.C.</h1>
+    <img src="imagenes/logcolorProyegen.jpg" alt="PROYEGEN S.A.C.">
 
+    <div>
         <p>Sistema Drywall · Proyectos Integrales</p>
-
     </div>
+
+  </div>
 
     <nav>
 
