@@ -328,6 +328,98 @@
             color: #111827;
         }
 
+
+<!-- =========================
+     NUESTROS PROYECTOS
+========================= -->
+
+<section class="section" id="proyectos">
+
+    <h2>Nuestros Proyectos</h2>
+
+    <p class="section-intro">
+
+        Conoce algunos de nuestros proyectos realizados,
+        desarrollados con soluciones en construcción en seco,
+        casetas de ventas, acabados y obras integrales.
+
+    </p>
+
+    <div class="projects-grid">
+
+        <!-- PROYECTO 1 -->
+
+        <div class="project-card">
+
+            <img
+                src="imagenes/Caseta inmobiliaria bengala.png"
+                alt="Caseta inmobiliaria Bengala"
+            >
+
+            <div class="project-card-content">
+
+                <h3>Caseta Inmobiliaria Bengala</h3>
+
+                <p>
+                    Diseño y ejecución de caseta de ventas
+                    para proyectos inmobiliarios.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROYECTO 2 -->
+
+        <div class="project-card">
+
+            <img
+                src="imagenes/Construccion TerrenoMarabierto.jpg"
+                alt="Construcción Terreno Mar Abierto"
+            >
+
+            <div class="project-card-content">
+
+                <h3>Oficina de Ventas – Mar Abierto</h3>
+
+                <p>
+                    Desarrollo de espacios funcionales
+                    para proyectos inmobiliarios.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROYECTO 3 -->
+
+        <div class="project-card">
+
+            <img
+                src="imagenes/Mejorar Colores (6).png"
+                alt="Proyecto de construcción Proyegen"
+            >
+
+            <div class="project-card-content">
+
+                <h3>Proyecto de Construcción</h3>
+
+                <p>
+                    Soluciones constructivas y acabados
+                    desarrollados por Proyegen.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+        
         
         /* =========================
            SERVICIOS
@@ -399,6 +491,84 @@
             font-size: 15px;
         }
 
+/* =========================
+   NUESTROS PROYECTOS
+========================= */
+
+.projects-grid {
+
+    display: flex;
+
+    gap: 30px;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+.project-card {
+
+    width: 350px;
+
+    background: white;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+}
+
+.project-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.project-card img {
+
+    width: 100%;
+
+    height: 240px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.project-card-content {
+
+    padding: 25px;
+
+    text-align: center;
+}
+
+.project-card h3 {
+
+    font-size: 21px;
+
+    color: #111827;
+
+    margin-bottom: 10px;
+}
+
+.project-card p {
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: #666;
+}
+      
+        
         /* =========================
            LLAMADO A LA ACCIÓN
         ========================= */
@@ -579,6 +749,8 @@
         <a href="#inicio">Inicio</a>
 
         <a href="#nosotros">Quiénes somos</a>
+        
+        <a href="#nosotros">Nuestros Proyectos</a>
 
         <a href="#servicios">Servicios</a>
 
@@ -848,22 +1020,6 @@
                 proyectos inmobiliarios, adaptadas a las necesidades
                 de cada desarrollo, con soluciones funcionales,
                 modernas y de calidad.
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <div class="card-icon">🏠</div>
-
-            <h3>Nuestros Proyectos</h3>
-
-            <p>
-
-            Conoce algunos de nuestros proyectos realizados, desarrollados con
-            soluciones en construcción en seco, casetas de ventas, acabados y
-            obras integrales, cuidando la calidad, funcionalidad y los tiempos de ejecución
-
             </p>
 
         </div>
