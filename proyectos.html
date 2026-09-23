@@ -1,199 +1,249 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nuestros Proyectos | Proyegen S.A.C.</title>
+<title>Proyegen S.A.C. | Nuestros Proyectos</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-        }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+}
 
-        header {
-            background-color: white;
-            text-align: center;
-            padding: 30px 20px;
-            border-bottom: 1px solid #ddd;
-        }
+header {
+    background: white;
+    text-align: center;
+    padding: 25px 20px 15px;
+    border-bottom: 1px solid #ddd;
+}
 
-        header img {
-            width: 180px;
-            height: auto;
-            object-fit: contain;
-        }
+.logo img {
+    width: 210px;
+    height: auto;
+    object-fit: contain;
+}
 
-        header p {
-            margin-top: 10px;
-            font-size: 16px;
-            color: #555;
-        }
+.logo p {
+    margin: 8px 0 0;
+    font-size: 16px;
+    color: #555;
+}
 
-        .contenedor {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
+.contenedor {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+}
 
-        .titulo {
-            text-align: center;
-            margin-bottom: 15px;
-        }
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 34px;
+}
 
-        .titulo h1 {
-            font-size: 36px;
-            color: #333;
-            margin-bottom: 12px;
-        }
+.proyecto {
+    background: white;
+    padding: 30px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
 
-        .titulo p {
-            max-width: 750px;
-            margin: 0 auto 40px;
-            line-height: 1.6;
-            color: #666;
-        }
+.proyecto h2 {
+    margin-top: 0;
+    font-size: 28px;
+}
 
-        .galeria {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
+.proyecto h3 {
+    margin-top: 35px;
+    font-size: 21px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 8px;
+}
 
-        .proyecto {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.10);
-        }
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
 
-        .proyecto img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
-        }
+.galeria img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
 
-        .descripcion {
-            padding: 20px;
-        }
+.proceso {
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+}
 
-        .descripcion h2 {
-            font-size: 21px;
-            margin-bottom: 10px;
-            color: #333;
-        }
+.boton {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0;
+    padding: 12px 25px;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
 
-        .descripcion p {
-            font-size: 15px;
-            line-height: 1.6;
-            color: #666;
-        }
+@media (max-width: 800px) {
+    .galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
-        .volver {
-            text-align: center;
-            margin-top: 50px;
-        }
+@media (max-width: 500px) {
+    .galeria {
+        grid-template-columns: 1fr;
+    }
 
-        .volver a {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #333;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
+    h1 {
+        font-size: 28px;
+    }
 
-        .volver a:hover {
-            background-color: #555;
-        }
-
-        @media (max-width: 700px) {
-
-            .galeria {
-                grid-template-columns: 1fr;
-            }
-
-            .titulo h1 {
-                font-size: 28px;
-            }
-
-            .proyecto img {
-                height: 240px;
-            }
-        }
-    </style>
+    .proyecto {
+        padding: 20px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <header>
-
-        <img src="imagenes/logcolorProyegen.jpg" alt="Proyegen S.A.C.">
-
+<header>
+    <div class="logo">
+        <img src="imagenes/logcolorProyegen.jpg" alt="PROYEGEN S.A.C.">
         <p>Sistema Drywall · Proyectos Integrales</p>
+    </div>
+</header>
 
-    </header>
+<div class="contenedor">
 
+    <h1>Nuestros Proyectos</h1>
 
-    <main class="contenedor">
+ 
+    <section class="proyecto">
 
-        <section class="titulo">
+    <h2>01 — Caseta / Oficina de Ventas Bengala – Mar Abierto</h2>
 
-            <h1>Nuestros Proyectos</h1>
+    <h3>Resultado final</h3>
 
-            <p>
-                Conoce algunos de los proyectos desarrollados por Proyegen S.A.C.,
-                especializados en construcción en seco, acabados y proyectos integrales.
-            </p>
+    <div class="galeria">
 
-        </section>
+        <img src="imagenes/OFICINA VTA BENGALA MAR ABIERTO PORTADA .png"
+             alt="Caseta de ventas Bengala - Mar Abierto">
 
+        <img src="imagenes/OFICINA VTA BENGALA MAR ABIERTO 1.png"
+             alt="Oficina de ventas Bengala - Mar Abierto">
 
-        <section class="galeria">
+    </div>
 
+    <div class="proceso">
 
-            <!-- PROYECTO 1 -->
+        <h3>Proceso de ejecución</h3>
 
-            <article class="proyecto">
+        <div class="galeria">
 
-                <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO SALA 1.png"
-                     alt="Departamento Bengala Mar Abierto">
+            <img src="imagenes/TBJO OFICINA VTA BENGALA MAR ABIERTO 1 .jpg"
+                 alt="Proceso de construcción de caseta Bengala">
 
-                <div class="descripcion">
+            <img src="imagenes/TBJO OFICINA VTA BENGALA MAR ABIERTO 2 .jpg"
+                 alt="Proceso de construcción de caseta Bengala">
 
-                    <h2>Departamento Bengala – Mar Abierto</h2>
+            <img src="imagenes/TBJO OFICINA VTA BENGALA MAR ABIERTO 3 .jpg"
+                 alt="Proceso de construcción de caseta Bengala">
 
-                    <p>
-                        Proyecto de acondicionamiento y acabados interiores,
-                        desarrollado por Proyegen S.A.C.
-                    </p>
+            <img src="imagenes/TBJO OFICINA VTA BENGALA MAR ABIERTO 4 .jpg"
+                 alt="Proceso de construcción de caseta Bengala">
 
-                </div>
+            <img src="imagenes/TBJO OFICINA VTA BENGALA MAR ABIERTO 5 .jpg"
+                 alt="Proceso de construcción de caseta Bengala">
 
-            </article>
+            <img src="imagenes/TBJO OFICINA VTA BENGALA MAR ABIERTO 6.jpg"
+                 alt="Proceso de construcción de caseta Bengala">
 
+            <img src="imagenes/TBJO OFICINA VTA BENGALA MAR ABIERTO 7 .jpg"
+                 alt="Proceso de construcción de caseta Bengala">
 
-            <!-- AQUÍ AGREGAREMOS LOS SIGUIENTES PROYECTOS -->
-
-        </section>
-
-
-        <div class="volver">
-
-            <a href="index.html">← Volver al inicio</a>
+            <img src="imagenes/TBJO OFICINA VTA BENGALA MAR ABIERTO 8 .jpg"
+                 alt="Proceso de construcción de caseta Bengala">
 
         </div>
 
-    </main>
+    </div>
 
+</section>
+
+<section class="proyecto">
+
+    <h2>02 — Departamento Bengala – Mar Abierto</h2>
+
+    <h3>Sala</h3>
+
+    <div class="galeria">
+
+        <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO SALA 1.png"
+             alt="Sala - Departamento Bengala Mar Abierto">
+
+        <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO SALA 2.png"
+             alt="Sala - Departamento Bengala Mar Abierto">
+
+        <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO SALA 2-2.png"
+             alt="Sala - Departamento Bengala Mar Abierto">
+
+    </div>
+
+
+    <h3>Cocina</h3>
+
+    <div class="galeria">
+
+        <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO COCINA .jpeg"
+             alt="Cocina - Departamento Bengala Mar Abierto">
+
+        <img src="imagenes/TBJO DPTO MAR ABIERTO COCINA.png"
+             alt="Proceso de construcción de cocina">
+
+    </div>
+
+
+    <h3>Dormitorios</h3>
+
+    <div class="galeria">
+
+        <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO DORMITORIO 1.png"
+             alt="Dormitorio 1 - Departamento Bengala Mar Abierto">
+
+        <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO DORMITORIO 2.png"
+             alt="Dormitorio 2 - Departamento Bengala Mar Abierto">
+
+        <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO DORMITORIO 3.jpeg"
+             alt="Dormitorio 3 - Departamento Bengala Mar Abierto">
+
+        <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO DORMITORIO 4.jpeg"
+             alt="Dormitorio 4 - Departamento Bengala Mar Abierto">
+
+    </div>
+
+</section>
+    
+</div>
+
+    <a href="index.html" class="boton">← Volver al inicio</a>
+    
 </body>
 </html>
