@@ -4,31 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Proyecto Mar Abierto | PROYEGEN S.A.C.</title>
+<title>Bengala – Mar Abierto | PROYEGEN S.A.C.</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 :root {
     --azul: #111827;
     --naranja: #f59e0b;
-    --blanco: #ffffff;
     --gris: #f4f5f7;
-    --texto: #333333;
 }
 
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: var(--gris);
-    color: var(--texto);
+    color: #333;
     line-height: 1.6;
 }
 
 header {
-    background: var(--blanco);
+    background: white;
     padding: 18px 20px;
     border-bottom: 4px solid var(--naranja);
 }
@@ -44,9 +40,7 @@ header {
 
 .logo img {
     width: 190px;
-    max-width: 100%;
     height: auto;
-    object-fit: contain;
 }
 
 nav a {
@@ -56,18 +50,16 @@ nav a {
     margin-left: 22px;
 }
 
-nav a:hover {
-    color: var(--naranja);
-}
+nav a:hover { color: var(--naranja); }
 
 .portada {
     background: var(--azul);
-    color: var(--blanco);
+    color: white;
     padding: 65px 20px;
     text-align: center;
 }
 
-.portada .etiqueta {
+.etiqueta {
     color: var(--naranja);
     font-weight: bold;
     letter-spacing: 2px;
@@ -97,26 +89,22 @@ nav a:hover {
     padding: 28px;
     border-radius: 10px;
     margin-bottom: 35px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    box-shadow: 0 3px 12px rgba(0,0,0,.06);
 }
 
 .introduccion h2 {
     color: var(--azul);
-    margin-top: 0;
     border-left: 5px solid var(--naranja);
     padding-left: 14px;
 }
 
-.seccion {
-    margin-bottom: 45px;
-}
+.seccion { margin-bottom: 45px; }
 
 .seccion h2 {
     color: var(--azul);
     font-size: 27px;
     border-bottom: 3px solid var(--naranja);
     padding-bottom: 10px;
-    margin-bottom: 22px;
 }
 
 .seccion h3 {
@@ -138,12 +126,10 @@ nav a:hover {
     display: block;
     border-radius: 9px;
     background: #ddd;
-    transition: transform 0.25s;
+    transition: transform .25s;
 }
 
-.galeria img:hover {
-    transform: scale(1.025);
-}
+.galeria img:hover { transform: scale(1.025); }
 
 .galeria .destacada {
     grid-column: span 2;
@@ -168,9 +154,7 @@ nav a:hover {
     border-radius: 6px;
 }
 
-.volver:hover {
-    background: white;
-}
+.volver:hover { background: white; }
 
 .pie {
     background: var(--azul);
@@ -179,62 +163,24 @@ nav a:hover {
     padding: 30px 20px;
 }
 
-.pie p {
-    margin: 6px 0;
-}
-
-.pie strong {
-    color: var(--naranja);
-}
+.pie strong { color: var(--naranja); }
 
 @media (max-width: 800px) {
-    .galeria {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .galeria .destacada {
-        grid-column: span 2;
-    }
-
-    .encabezado {
-        flex-direction: column;
-    }
-
-    nav a {
-        margin: 0 9px;
-    }
+    .galeria { grid-template-columns: repeat(2, 1fr); }
+    .galeria .destacada { grid-column: span 2; }
+    .encabezado { flex-direction: column; }
 }
 
 @media (max-width: 500px) {
-    .galeria {
-        grid-template-columns: 1fr;
-    }
-
+    .galeria { grid-template-columns: 1fr; }
     .galeria .destacada {
         grid-column: span 1;
         height: 260px;
     }
-
-    .galeria img {
-        height: 230px;
-    }
-
-    .portada h1 {
-        font-size: 29px;
-    }
-
-    .portada {
-        padding: 45px 18px;
-    }
-
-    .contenedor {
-        padding: 30px 15px;
-    }
-
-    .introduccion,
-    .proceso {
-        padding: 20px;
-    }
+    .galeria img { height: 230px; }
+    .portada h1 { font-size: 29px; }
+    .portada { padding: 45px 18px; }
+    .contenedor { padding: 30px 15px; }
 }
 </style>
 </head>
@@ -243,9 +189,8 @@ nav a:hover {
 
 <header>
     <div class="encabezado">
-
         <div class="logo">
-            <img src="imágenes/logcolorProyegen.jpg"
+            <img src="imagenes/logcolorProyegen.jpg"
                  alt="PROYEGEN S.A.C.">
         </div>
 
@@ -253,15 +198,12 @@ nav a:hover {
             <a href="índice.html">Inicio</a>
             <a href="proyectos.html">Proyectos</a>
         </nav>
-
     </div>
 </header>
 
 <section class="portada">
     <div class="etiqueta">Portafolio de proyectos</div>
-
     <h1>Bengala – Mar Abierto</h1>
-
     <p>
         Ejecución de caseta de ventas y acondicionamiento
         de departamento en el proyecto Mar Abierto.
@@ -272,16 +214,14 @@ nav a:hover {
 
     <section class="introduccion">
         <h2>Descripción del proyecto</h2>
-
         <p>
             PROYEGEN S.A.C. desarrolló trabajos de construcción
             y acondicionamiento en el proyecto Bengala – Mar Abierto,
             comprendiendo la ejecución de una caseta u oficina
             de ventas y el acondicionamiento de un departamento.
         </p>
-
         <p>
-            En esta presentación se muestran imágenes del resultado
+            A continuación, presentamos imágenes del resultado
             final y del proceso de ejecución de los trabajos.
         </p>
     </section>
@@ -293,49 +233,28 @@ nav a:hover {
         <h3>Resultado final</h3>
 
         <div class="galeria">
-
             <img class="destacada"
-                 src="imágenes/OFICINA  VTA BENGALA MAR ABIERTO PORTADA .png"
+                 src="imagenes/OFICINA VTA BENGALA MAR ABIERTO PORTADA .png"
                  alt="Caseta de ventas Bengala Mar Abierto">
 
             <img
-                 src="imágenes/OFICINA  VTA BENGALA MAR ABIERTO 1.png"
+                 src="imagenes/OFICINA VTA BENGALA MAR ABIERTO 1.png"
                  alt="Oficina de ventas Bengala Mar Abierto">
-
         </div>
 
         <div class="proceso">
-
             <h3>Proceso de ejecución</h3>
 
             <div class="galeria">
-
-                <img src="imágenes/TBJO OFICINA VTA  BENGALA MAR ABIERTO 1 .jpg"
-                     alt="Proceso de construcción de caseta">
-
-                <img src="imágenes/TBJO OFICINA VTA  BENGALA MAR ABIERTO 2 .jpg"
-                     alt="Proceso de construcción de caseta">
-
-                <img src="imágenes/TBJO OFICINA VTA  BENGALA MAR ABIERTO 3 .jpg"
-                     alt="Proceso de construcción de caseta">
-
-                <img src="imágenes/TBJO OFICINA VTA  BENGALA MAR ABIERTO 4 .jpg"
-                     alt="Proceso de construcción de caseta">
-
-                <img src="imágenes/TBJO OFICINA VTA  BENGALA MAR ABIERTO 5 .jpg"
-                     alt="Proceso de construcción de caseta">
-
-                <img src="imágenes/TBJO OFICINA VTA  BENGALA MAR ABIERTO 6.jpg"
-                     alt="Proceso de construcción de caseta">
-
-                <img src="imágenes/TBJO OFICINA VTA  BENGALA MAR ABIERTO 7 .jpg"
-                     alt="Proceso de construcción de caseta">
-
-                <img src="imágenes/TBJO OFICINA VTA  BENGALA MAR ABIERTO 8 .jpg"
-                     alt="Proceso de construcción de caseta">
-
+                <img src="imagenes/TBJO OFICINA VTA BENGALA MAR ABIERTO 1 .jpg" alt="Proceso de construcción 1">
+                <img src="imagenes/TBJO OFICINA VTA BENGALA MAR ABIERTO 2 .jpg" alt="Proceso de construcción 2">
+                <img src="imagenes/TBJO OFICINA VTA BENGALA MAR ABIERTO 3 .jpg" alt="Proceso de construcción 3">
+                <img src="imagenes/TBJO OFICINA VTA BENGALA MAR ABIERTO 4 .jpg" alt="Proceso de construcción 4">
+                <img src="imagenes/TBJO OFICINA VTA BENGALA MAR ABIERTO 5 .jpg" alt="Proceso de construcción 5">
+                <img src="imagenes/TBJO OFICINA VTA BENGALA MAR ABIERTO 6.jpg" alt="Proceso de construcción 6">
+                <img src="imagenes/TBJO OFICINA VTA BENGALA MAR ABIERTO 7 .jpg" alt="Proceso de construcción 7">
+                <img src="imagenes/TBJO OFICINA VTA BENGALA MAR ABIERTO 8 .jpg" alt="Proceso de construcción 8">
             </div>
-
         </div>
 
     </section>
@@ -347,46 +266,25 @@ nav a:hover {
         <h3>Sala</h3>
 
         <div class="galeria">
-
-            <img src="imágenes/PROYECTO DPTO BENGALA MAR ABIERTO SALA 1.png"
-                 alt="Sala del departamento Mar Abierto">
-
-            <img src="imágenes/PROYECTO DPTO BENGALA MAR ABIERTO SALA 2.png"
-                 alt="Sala del departamento Mar Abierto">
-
-            <img src="imágenes/PROYECTO DPTO BENGALA MAR ABIERTO SALA 2-2.png"
-                 alt="Sala del departamento Mar Abierto">
-
+            <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO SALA 1.png" alt="Sala del departamento">
+            <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO SALA 2.png" alt="Sala del departamento">
+            <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO SALA 2 2.png" alt="Sala del departamento">
         </div>
 
         <h3>Cocina</h3>
 
         <div class="galeria">
-
-            <img src="imágenes/PROYECTO DPTO BENGALA MAR ABIERTO COCINA .jpeg"
-                 alt="Cocina del departamento Mar Abierto">
-
-            <img src="imágenes/TBJO DPTO MAR ABIERTO COCINA.png"
-                 alt="Trabajos en cocina del departamento Mar Abierto">
-
+            <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO COCINA .jpeg" alt="Cocina del departamento">
+            <img src="imagenes/TBJO DPTO MAR ABIERTO COCINA.png" alt="Trabajos en cocina">
         </div>
 
         <h3>Dormitorios</h3>
 
         <div class="galeria">
-
-            <img src="imágenes/PROYECTO DPTO BENGALA MAR ABIERTO DORMITORIO 1.png"
-                 alt="Dormitorio 1 del departamento Mar Abierto">
-
-            <img src="imágenes/PROYECTO DPTO BENGALA MAR ABIERTO DORMITORIO 2.png"
-                 alt="Dormitorio 2 del departamento Mar Abierto">
-
-            <img src="imágenes/PROYECTO DPTO BENGALA MAR ABIERTO DORMITORIO 3.jpeg"
-                 alt="Dormitorio 3 del departamento Mar Abierto">
-
-            <img src="imágenes/PROYECTO DPTO BENGALA MAR ABIERTO DORMITORIO 4.jpeg"
-                 alt="Dormitorio 4 del departamento Mar Abierto">
-
+            <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO DORMITORIO 1.png" alt="Dormitorio 1">
+            <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO DORMITORIO 2.png" alt="Dormitorio 2">
+            <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO DORMITORIO 3.jpeg" alt="Dormitorio 3">
+            <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO DORMITORIO 4.jpeg" alt="Dormitorio 4">
         </div>
 
     </section>
