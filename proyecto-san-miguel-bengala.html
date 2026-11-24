@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bengala San Miguel | PROYEGEN S.A.C.</title>
+
+<style>
+:root {
+    --azul: #102b50;
+    --naranja: #f59e0b;
+    --fondo: #f3f5f8;
+    --blanco: #ffffff;
+    --texto: #263445;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+}
+
+header {
+    background: var(--blanco);
+    padding: 12px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--naranja);
+}
+
+.logo {
+    width: 145px;
+    height: auto;
+    object-fit: contain;
+}
+
+nav a {
+    color: var(--azul);
+    text-decoration: none;
+    font-size: 13px;
+    margin-left: 22px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--naranja);
+}
+
+.portada {
+    background: var(--azul);
+    color: white;
+    text-align: center;
+    padding: 48px 20px;
+}
+
+.portada .etiqueta {
+    color: var(--naranja);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.portada h1 {
+    margin: 12px 0;
+    font-size: 32px;
+}
+
+.portada p {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.contenedor {
+    max-width: 1150px;
+    margin: auto;
+    padding: 38px 22px;
+}
+
+.titulo-seccion {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.titulo-seccion h2 {
+    color: var(--azul);
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.titulo-seccion p {
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.acento {
+    width: 55px;
+    height: 4px;
+    background: var(--naranja);
+    margin: 12px auto;
+    border-radius: 5px;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.foto {
+    background: white;
+    border-radius: 9px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.09);
+    transition: transform .25s ease;
+}
+
+.foto:hover {
+    transform: translateY(-4px);
+}
+
+.foto img {
+    width: 100%;
+    height: 235px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+}
+
+.pie-foto {
+    padding: 12px 14px;
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--azul);
+}
+
+.seccion-caseta {
+    background: white;
+    border-radius: 10px;
+    padding: 35px 25px;
+    text-align: center;
+    border: 1px dashed #cbd5e1;
+}
+
+.seccion-caseta p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.etiqueta-pendiente {
+    display: inline-block;
+    background: #fff3d6;
+    color: #925800;
+    padding: 7px 13px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.volver {
+    text-align: center;
+    padding: 10px 20px 45px;
+}
+
+.boton {
+    display: inline-block;
+    background: var(--azul);
+    color: white;
+    text-decoration: none;
+    padding: 13px 25px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.boton:hover {
+    background: var(--naranja);
+    color: var(--azul);
+}
+
+footer {
+    background: var(--azul);
+    color: white;
+    text-align: center;
+    padding: 23px 15px;
+    font-size: 12px;
+}
+
+/* Visor de fotografías */
+#visor {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background: rgba(0,0,0,.92);
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+#visor img {
+    max-width: 95%;
+    max-height: 88vh;
+    object-fit: contain;
+}
+
+#cerrar {
+    position: absolute;
+    top: 18px;
+    right: 28px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+    .galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    header {
+        padding: 12px 4%;
+    }
+
+    .logo {
+        width: 115px;
+    }
+
+    nav a {
+        margin-left: 10px;
+        font-size: 12px;
+    }
+
+    .portada h1 {
+        font-size: 25px;
+    }
+
+    .galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .foto img {
+        height: 240px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="índice.html">
+        <img class="logo"
+             src="im%C3%A1genes/LogBlancoN.png"
+             alt="PROYEGEN S.A.C.">
+    </a>
+
+    <nav>
+        <a href="índice.html">Inicio</a>
+        <a href="proyectos.html">Proyectos</a>
+    </nav>
+</header>
+
+<section class="portada">
+    <div class="etiqueta">EXPERIENCIA Y CALIDAD</div>
+    <h1>Bengala – San Miguel</h1>
+    <p>
+        Proyecto de acondicionamiento de espacios y habilitación
+        de ambientes, comprendiendo la caseta de ventas y el
+        departamento acondicionado.
+    </p>
+</section>
+
+<!-- SECCIÓN 1: CASETA DE VENTAS -->
+
+<section class="contenedor">
+    <div class="titulo-seccion">
+        <h2>01. Caseta de ventas</h2>
+        <div class="acento"></div>
+        <p>
+            Adecuación e implementación de la caseta de ventas
+            del proyecto Bengala – San Miguel.
+        </p>
+    </div>
+
+    <div class="seccion-caseta">
+        <h3>Fotografías de la caseta de ventas</h3>
+        <p>
+            En esta sección incorporaremos las fotografías de
+            la caseta de ventas cuando estén disponibles.
+        </p>
+        <span class="etiqueta-pendiente">
+            Fotografías pendientes de incorporar
+        </span>
+    </div>
+</section>
+
+<!-- SECCIÓN 2: DEPARTAMENTO -->
+
+<section class="contenedor">
+    <div class="titulo-seccion">
+        <h2>02. Acondicionamiento de departamento</h2>
+        <div class="acento"></div>
+        <p>
+            Registro fotográfico de los ambientes acondicionados,
+            incluyendo sala, cocina, dormitorios, baños y lavandería.
+        </p>
+    </div>
+
+    <div class="galeria">
+
+        <div class="foto">
+            <img src="im%C3%A1genes/BengalaSanMiguel/Proy-bengala-san-miguel-ingreso.jpg"
+                 alt="Ingreso del departamento"
+                 onclick="ampliar(this)">
+            <div class="pie-foto">Ingreso</div>
+        </div>
+
+        <div class="foto">
+            <img src="im%C3%A1genes/BengalaSanMiguel/Proy-bengala-san-miguel-sala.jpg"
+                 alt="Sala del departamento"
+                 onclick="ampliar(this)">
+            <div class="pie-foto">Sala</div>
+        </div>
+
+        <div class="foto">
+            <img src="im%C3%A1genes/BengalaSanMiguel/Proy-bengala-san-miguel-sala-1.jpg"
+                 alt="Vista adicional de la sala"
+                 onclick="ampliar(this)">
+            <div class="pie-foto">Sala – vista adicional</div>
+        </div>
+
+        <div class="foto">
+            <img src="im%C3%A1genes/BengalaSanMiguel/Proy-bengala-san-miguel-cocina.jpg"
+                 alt="Cocina acondicionada"
+                 onclick="ampliar(this)">
+            <div class="pie-foto">Cocina</div>
+        </div>
+
+        <div class="foto">
+            <img src="im%C3%A1genes/BengalaSanMiguel/Proy-bengala-san-miguel-dormitorio-1.jpg"
+                 alt="Dormitorio 1"
+                 onclick="ampliar(this)">
+            <div class="pie-foto">Dormitorio 1</div>
+        </div>
+
+        <div class="foto">
+            <img src="im%C3%A1genes/BengalaSanMiguel/Proy-bengala-san-miguel-dormitorio-2.jpg"
+                 alt="Dormitorio 2"
+                 onclick="ampliar(this)">
+            <div class="pie-foto">Dormitorio 2</div>
+        </div>
+
+        <div class="foto">
+            <img src="im%C3%A1genes/BengalaSanMiguel/Proy-bengala-san-miguel-dormitorio-3.jpg"
+                 alt="Dormitorio 3"
+                 onclick="ampliar(this)">
+            <div class="pie-foto">Dormitorio 3</div>
+        </div>
+
+        <div class="foto">
+            <img src="im%C3%A1genes/BengalaSanMiguel/Proy-bengala-san-miguel-dormitorio1-1.jpg"
+                 alt="Vista adicional de dormitorio"
+                 onclick="ampliar(this)">
+            <div class="pie-foto">Dormitorio – vista adicional</div>
+        </div>
+
+        <div class="foto">
+            <img src="im%C3%A1genes/BengalaSanMiguel/Proy-bengala-san-miguel-ba%C3%B1o-1.jpg"
+                 alt="Baño 1"
+                 onclick="ampliar(this)">
+            <div class="pie-foto">Baño 1</div>
+        </div>
+
+        <div class="foto">
+            <img src="im%C3%A1genes/BengalaSanMiguel/Proy-bengala-san-miguel-ba%C3%B1o-1-1.jpg"
+                 alt="Vista adicional del baño"
+                 onclick="ampliar(this)">
+            <div class="pie-foto">Baño – vista adicional</div>
+        </div>
+
+        <div class="foto">
+            <img src="im%C3%A1genes/BengalaSanMiguel/Proy-bengala-san-miguel-ba%C3%B1o-2.jpg"
+                 alt="Baño 2"
+                 onclick="ampliar(this)">
+            <div class="pie-foto">Baño 2</div>
+        </div>
+
+        <div class="foto">
+            <img src="im%C3%A1genes/BengalaSanMiguel/Proy-bengala-san-miguel-lavanderia.jpg"
+                 alt="Lavandería"
+                 onclick="ampliar(this)">
+            <div class="pie-foto">Lavandería</div>
+        </div>
+
+    </div>
+</section>
+
+<div class="volver">
+    <a class="boton" href="proyectos.html">
+        Volver a proyectos
+    </a>
+</div>
+
+<footer>
+    © 2026 PROYEGEN S.A.C. – Todos los derechos reservados.
+</footer>
+
+<!-- VISOR DE FOTOGRAFÍAS -->
+
+<div id="visor" onclick="cerrarVisor()">
+    <span id="cerrar">&times;</span>
+    <img id="imagenAmpliada" src="" alt="Fotografía ampliada">
+</div>
+
+<script>
+function ampliar(imagen) {
+    document.getElementById("imagenAmpliada").src = imagen.src;
+    document.getElementById("visor").style.display = "flex";
+}
+
+function cerrarVisor() {
+    document.getElementById("visor").style.display = "none";
+}
+
+document.addEventListener("keydown", function(evento) {
+    if (evento.key === "Escape") {
+        cerrarVisor();
+    }
+});
+</script>
+
+</body>
+</html>
