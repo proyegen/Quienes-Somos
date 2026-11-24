@@ -277,6 +277,60 @@ nav a.activo {
         height: 220px;
     }
 }
+
+/* Galerías automáticas de las ocho tarjetas */
+
+.fotografia.carrusel {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.fotografia.carrusel img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: rotarFotografias 12s infinite;
+}
+
+.fotografia.carrusel img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.fotografia.carrusel img:nth-child(2) {
+    animation-delay: 4s;
+}
+
+.fotografia.carrusel img:nth-child(3) {
+    animation-delay: 8s;
+}
+
+@keyframes rotarFotografias {
+    0% { opacity: 0; }
+    5% { opacity: 1; }
+    28% { opacity: 1; }
+    33% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.tarjeta:hover .fotografia.carrusel img {
+    animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fotografia.carrusel img {
+        animation: none;
+    }
+
+    .fotografia.carrusel img:first-child {
+        opacity: 1;
+    }
+}
+
+    
 </style>
 </head>
 
