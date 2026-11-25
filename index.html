@@ -1,1055 +1,843 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>PROYEGEN S.A.C. | Soluciones Integrales</title>
-
-<style>
-:root {
-  --azul: #102b50;
-  --naranja: #FB850B;
-  --blanco: #ffffff;
-  --gris: #f4f6f8;
-  --texto: #374151;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--texto);
-  background: var(--blanco);
-  line-height: 1.6;
-}
-
-/* =========================
-   ENCABEZADO
-========================= */
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--blanco);
-  padding: 10px 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  border-bottom: 3px solid var(--naranja);
-  box-shadow: 0 2px 10px rgba(16,43,80,0.08);
-}
-
-.logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  flex-shrink: 0;
-}
-
-.logo img {
-  width: 245px;
-  height: 85px;
-  object-fit: contain;
-}
-
-.logo p {
-  font-size: 13px;
-  font-weight: bold;
-  color: var(--azul);
-  text-align: center;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  gap: 27px;
-}
-
-nav a {
-  color: var(--azul);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 8px 0;
-  transition: color 0.3s;
-}
-
-nav a:hover,
-nav a.activo {
-  color: var(--naranja);
-}
-
-/* =========================
-   PORTADA DINÁMICA
-========================= */
-
-.hero {
-  position: relative;
-  min-height: 540px;
-  display: flex;
-  align-items: center;
-  padding: 65px 7%;
-  overflow: hidden;
-  color: white;
-  background: var(--azul);
-}
-
-.hero-slider {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 2.5s ease-in-out;
-  overflow: hidden;
-}
-
-.slide.active {
-  opacity: 1;
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  animation: movimientoLento 12s ease-in-out both;
-}
-
-@keyframes movimientoLento {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.01);
-  }
-}
-
-/* Degradado azul más transparente:
-   permite apreciar mejor las fotografías */
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    90deg,
-    rgba(16,43,80,0.82) 0%,
-    rgba(16,43,80,0.65) 35%,
-    rgba(16,43,80,0.35) 60%,
-    rgba(16,43,80,0.05) 100%
-  );
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 620px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.18);
-}
-
-.hero-small {
-  color: var(--naranja);
-  font-size: 16px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
-}
-
-.hero h1 {
-  font-size: 48px;
-  line-height: 1.12;
-  margin-bottom: 20px;
-}
-
-.hero h1 span {
-  color: var(--naranja);
-}
-
-.hero p {
-  font-size: 18px;
-  line-height: 1.65;
-  color: #f1f5f9;
-  margin-bottom: 28px;
-  max-width: 540px;
-}
-
-.button {
-  display: inline-block;
-  background: var(--naranja);
-  color: white;
-  padding: 13px 25px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 15px;
-  transition: 0.3s;
-}
-
-.button:hover {
-  background: #e87500;
-  transform: translateY(-2px);
-}
-
-.slider-indicators {
-  position: absolute;
-  z-index: 3;
-  bottom: 23px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-}
-
-.slider-indicators button {
-  width: 10px;
-  height: 10px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.65);
-  cursor: pointer;
-}
-
-.slider-indicators button.active {
-  background: var(--naranja);
-}
-
-/* =========================
-   SERVICIOS - FRANJA HORIZONTAL
-========================= */
-
-.services-strip {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 28px 20px;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  background: #ffffff;
-}
-
-.service-item {
-  min-height: 125px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 10px 15px;
-}
-
-.service-item + .service-item {
-  border-left: 1px solid #d9dee5;
-}
-
-.service-item svg {
-  width: 55px;
-  height: 55px;
-  margin-bottom: 9px;
-  fill: none;
-  stroke: #102b50;
-  stroke-width: 2.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.service-item h3 {
-  color: #102b50;
-  font-size: 16px;
-  line-height: 1.3;
-  font-weight: bold;
-}
-
-/* =========================
-   QUIÉNES SOMOS
-========================= */
-
-.section {
-  padding: 65px 7%;
-}
-
-.section h2 {
-  color: var(--azul);
-  text-align: center;
-  font-size: 32px;
-  margin-bottom: 12px;
-}
-
-.section h2::after {
-  content: "";
-  display: block;
-  width: 65px;
-  height: 3px;
-  background: var(--naranja);
-  margin: 12px auto 35px;
-}
-
-.section-intro {
-  max-width: 760px;
-  margin: 0 auto 35px;
-  text-align: center;
-  color: #667085;
-  line-height: 1.7;
-}
-
-.about-section {
-  background: #ffffff;
-  padding-bottom: 0;
-}
-
-.about-content {
-  max-width: 1150px;
-  margin: 0 auto 55px;
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  align-items: center;
-  gap: 45px;
-}
-
-.about-image img {
-  display: block;
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 4px;
-}
-
-.about-text {
-  text-align: left;
-}
-
-.about-text h3 {
-  color: var(--azul);
-  font-size: 25px;
-  margin-bottom: 16px;
-}
-
-.about-text p {
-  font-size: 16px;
-  line-height: 1.85;
-  color: #555;
-}
-
-.about-text strong {
-  color: var(--azul);
-}
-
-.mission-vision {
-  background: var(--azul);
-  color: #ffffff;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  padding: 38px max(7%, calc((100% - 1150px) / 2));
-  gap: 0;
-}
-
-.info-box {
-  padding: 10px 42px;
-  text-align: center;
-}
-
-.info-box + .info-box {
-  border-left: 1px solid rgba(255,255,255,0.35);
-}
-
-.info-icon {
-  color: var(--naranja);
-  font-size: 32px;
-  margin-bottom: 8px;
-}
-
-.info-box h3 {
-  color: #ffffff;
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-
-.info-box p {
-  color: #e5eaf0;
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-/* =========================
-   NUESTROS PROYECTOS
-========================= */
-
-.projects-section {
-  background: var(--gris);
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.project-card {
-  background: white;
-  border-radius: 9px;
-  overflow: hidden;
-  box-shadow: 0 4px 18px rgba(16,43,80,0.09);
-  transition: 0.3s;
-  text-decoration: none;
-  color: inherit;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(16,43,80,0.15);
-}
-
-.project-card img {
-  width: 100%;
-  height: 235px;
-  object-fit: cover;
-  display: block;
-}
-
-.project-card-content {
-  padding: 20px;
-}
-
-.project-card h3 {
-  color: var(--azul);
-  font-size: 19px;
-  margin-bottom: 8px;
-}
-
-.project-card p {
-  color: #667085;
-  font-size: 14px;
-  line-height: 1.7;
-  margin-bottom: 12px;
-}
-
-.project-link {
-  color: var(--naranja);
-  font-weight: bold;
-  font-size: 14px;
-}
-
-/* =========================
-   CONTACTO
-========================= */
-
-.cta {
-  background: var(--azul);
-  color: white;
-  text-align: center;
-  padding: 65px 7%;
-}
-
-.cta h2 {
-  font-size: 32px;
-  margin-bottom: 15px;
-}
-
-.cta p {
-  max-width: 700px;
-  margin: 0 auto 25px;
-  line-height: 1.7;
-  color: #e0e7ef;
-}
-
-/* =========================
-   PIE DE PÁGINA
-========================= */
-
-footer {
-  background: #0b1d34;
-  color: #cbd5e1;
-  text-align: center;
-  padding: 24px 15px;
-  font-size: 13px;
-  border-top: 3px solid var(--naranja);
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 900px) {
-  header {
-    padding: 10px 4%;
-  }
-
-  nav {
-    gap: 15px;
-  }
-
-  nav a {
-    font-size: 13px;
-  }
-
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 650px) {
-  header {
-    position: relative;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px 12px 14px;
-  }
-
-  .logo img {
-    width: 210px;
-    height: 72px;
-  }
-
-  .logo p {
-    font-size: 12px;
-  }
-
-  nav {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px 18px;
-  }
-
-  nav a {
-    font-size: 12px;
-    margin: 0;
-  }
-
-  .hero {
-    min-height: 590px;
-    padding: 55px 25px;
-    align-items: flex-end;
-  }
-
-  /* En móvil el degradado se concentra
-     en la zona inferior, detrás del texto */
-
-  .hero::after {
-  background: linear-gradient(
-    0deg,
-    rgba(16,43,80,0.82) 0%,
-    rgba(16,43,80,0.65) 40%,
-    rgba(16,43,80,0.25) 75%,
-    rgba(16,43,80,0.05) 100%
-  );
-}
-
-  .hero-content {
-    max-width: 100%;
-    text-align: left;
-    padding-bottom: 28px;
-  }
-
-  .hero-small {
-    font-size: 13px;
-  }
-
-  .hero h1 {
-    font-size: 34px;
-  }
-
-  .hero p {
-    font-size: 15px;
-  }
-
-  .slider-indicators {
-    bottom: 15px;
-  }
-
-  .section {
-    padding: 50px 20px;
-  }
-
-  .section h2 {
-    font-size: 27px;
-  }
-
-  .section-intro {
-    font-size: 14px;
-  }
-
-  .services-strip {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 15px 8px;
-  }
-
-  .service-item {
-    min-height: 125px;
-    padding: 12px 8px;
-  }
-
-  .service-item:nth-child(3) {
-    border-left: none;
-  }
-
-  .service-item:nth-child(n+3) {
-    border-top: 1px solid #d9dee5;
-  }
-
-  .service-item h3 {
-    font-size: 14px;
-  }
-
-  .service-item svg {
-    width: 45px;
-    height: 45px;
-  }
-
-  .about-content {
-    grid-template-columns: 1fr;
-    gap: 25px;
-    margin-bottom: 35px;
-  }
-
-  .about-image img {
-    height: 250px;
-  }
-
-  .about-text h3 {
-    font-size: 22px;
-  }
-
-  .mission-vision {
-    grid-template-columns: 1fr;
-    padding: 25px 20px;
-  }
-
-  .info-box {
-    padding: 25px 10px;
-  }
-
-  .info-box + .info-box {
-    border-left: none;
-    border-top: 1px solid rgba(255,255,255,0.35);
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .project-card img {
-    height: 225px;
-  }
-
-  .cta {
-    padding: 50px 22px;
-  }
-
-  .cta h2 {
-    font-size: 26px;
-  }
-}
-
-@media (max-width: 360px) {
-  .hero h1 {
-    font-size: 30px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .slide {
-    transition: none;
-  }
-
-  .slide img {
-    animation: none;
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyegen S.A.C. | Sistema Drywall y Servicios Generales</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            background: #ffffff;
+        }
+
+        /* ENCABEZADO */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #111827;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .logo img {
+            width: 260px;
+            height: 100px;
+            object-fit: contain;
+        }
+
+        .logo p {
+            font-size: 13px;
+            margin: 0;
+            color: #d1d5db;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 28px;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #f59e0b;
+        }
+
+        /* PORTADA */
+
+        .hero {
+            position: relative;
+            min-height: 620px;
+            display: flex;
+            align-items: center;
+            padding: 80px 7%;
+            overflow: hidden;
+            color: white;
+        }
+
+        .hero-slider {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 2.5s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* CAPA OSCURA PARA LEER EL TEXTO */
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                90deg,
+                rgba(10,15,25,0.85),
+                rgba(10,15,25,0.45),
+                rgba(10,15,25,0.25)
+            );
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 760px;
+        }
+
+        .hero-small {
+            color: #f59e0b;
+            font-size: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .hero h2 {
+            font-size: 54px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.7;
+            color: #f3f4f6;
+            margin-bottom: 35px;
+            max-width: 650px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #f59e0b;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .button:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+        }
+
+        /* BLOQUE DE CONFIANZA */
+
+        .trust {
+            background: #111827;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            padding: 28px 7%;
+        }
+
+        .trust-item {
+            text-align: center;
+        }
+
+        .trust-item strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .trust-item span {
+            color: #d1d5db;
+            font-size: 14px;
+        }
+
+        /* SECCIONES */
+
+        .section {
+            padding: 85px 7%;
+            background: white;
+        }
+
+        .section:nth-of-type(even) {
+            background: #f8fafc;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .section h2::after {
+            content: "";
+            display: block;
+            width: 55px;
+            height: 4px;
+            background: #f59e0b;
+            margin: 15px auto 0;
+            border-radius: 5px;
+        }
+
+        .section-intro {
+            max-width: 850px;
+            margin: 0 auto 45px;
+            text-align: center;
+            line-height: 1.8;
+            font-size: 17px;
+            color: #555;
+        }
+
+        /* QUIÉNES SOMOS */
+
+        .about-section {
+            background: #f8fafc;
+        }
+
+        .about-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            max-width: 900px;
+            margin: 0 auto 45px;
+            text-align: center;
+        }
+
+        .about-text p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 18px;
+        }
+
+        .about-text strong {
+            color: #111827;
+        }
+
+        .mission-vision {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        .info-box {
+            flex: 1;
+            max-width: 500px;
+            background: white;
+            padding: 38px 35px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            border-top: 4px solid #f59e0b;
+            transition: 0.3s;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .info-icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .info-box h3 {
+            font-size: 24px;
+            color: #111827;
+            margin-bottom: 18px;
+        }
+
+        .info-box p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .info-box strong {
+            color: #111827;
+        }
+
+        /* SERVICIOS */
+
+        .cards {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            width: 310px;
+            padding: 35px 30px;
+            background: white;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            border-top: 4px solid #f59e0b;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #111827;
+            font-size: 21px;
+        }
+
+        .card p {
+            line-height: 1.7;
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* NUESTROS PROYECTOS */
+
+        .projects-grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .project-card {
+            width: 350px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-card-content {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .project-card h3 {
+            font-size: 21px;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #666;
+        }
+
+        /* LLAMADO A LA ACCIÓN */
+
+        .cta {
+            background: linear-gradient(
+                rgba(17,24,39,0.93),
+                rgba(17,24,39,0.93)
+            );
+            color: white;
+            text-align: center;
+            padding: 80px 7%;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 18px;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+            color: #d1d5db;
+        }
+
+        /* PIE DE PÁGINA */
+
+        footer {
+            background: #0b1120;
+            color: #9ca3af;
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+        }
+
+        /* CELULARES */
+
+        @media (max-width: 768px) {
+            header {
+                position: relative;
+                flex-direction: column;
+                gap: 18px;
+                text-align: center;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: 560px;
+                padding: 70px 8%;
+                text-align: center;
+                background-position: center;
+            }
+
+            .hero h2 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .trust {
+                flex-direction: column;
+                gap: 22px;
+                padding: 30px;
+            }
+
+            .section {
+                padding: 65px 7%;
+            }
+
+            .mission-vision {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .info-box {
+                width: 100%;
+                max-width: 500px;
+            }
+
+            .about-text {
+                text-align: left;
+            }
+
+            .section h2 {
+                font-size: 30px;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 360px;
+            }
+
+            .cta h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- =========================
-     ENCABEZADO
-========================= -->
+    <!-- ENCABEZADO -->
 
-<header>
+    <header>
+        <div class="logo">
+            <img src="imagenes/PROYEGEN_logo_web.png" alt="PROYEGEN S.A.C.">
+            <div>
+                <p>Sistema Drywall · Servicios Generales</p>
+            </div>
+        </div>
 
-  <div class="logo">
-    <img src="imagenes/logo-proyegen.png" alt="PROYEGEN S.A.C.">
-    <p>Drywall - Proyectos Generales</p>
-  </div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Quiénes somos</a>
+            <a href="proyectos.html">Nuestros Proyectos</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
 
-  <nav>
-    <a href="#inicio" class="activo">Inicio</a>
-    <a href="#nosotros">Quiénes somos</a>
-    <a href="proyectos.html">Proyectos</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
+    <!-- PORTADA / BANNER -->
 
-</header>
+    <section class="hero" id="inicio">
+        <div class="hero-slider">
 
-<!-- =========================
-     PORTADA DINÁMICA
-========================= -->
+            <div class="slide active">
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=85" alt="Proyecto de construcción">
+            </div>
 
-<section class="hero" id="inicio">
+            <div class="slide">
+                <img src="imagenes/OFICINA  VTA BENGALA MAR ABIERTO 1.png" alt="Oficina de ventas Bengala Mar Abierto">
+            </div>
 
-  <div class="hero-slider">
+            <div class="slide">
+                <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO SALA 1.png" alt="Proyecto departamento Bengala Mar Abierto Sala 1">
+            </div>
 
-    <div class="slide active">
-      <img
-        src="imagenes/PROYECTO%20DPTO%20BENGALA%20MAR%20ABIERTO%20SALA%201.png"
-        alt="Sala de departamento Bengala Mar Abierto">
-    </div>
+            <div class="slide">
+                <img src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO SALA 2.png" alt="Proyecto departamento Bengala Mar Abierto Sala 2">
+            </div>
 
-    <div class="slide">
-      <img
-        src="imagenes/OFICINA%20%20VTA%20BENGALA%20MAR%20ABIERTO%201.png"
-        alt="Oficina de ventas Bengala Mar Abierto">
-    </div>
+        </div>
 
-    <div class="slide">
-      <img
-        src="imagenes/rpp/proy-rpp-f1.png"
-        alt="Proyecto de acondicionamiento de comedor RPP">
-    </div>
+        <div class="hero-content">
+            <div class="hero-small">Soluciones constructivas</div>
 
-    <div class="slide">
-      <img
-        src="imagenes/BengalaSanMiguel/Proy-bengala-san-miguel-dormitorio1-1.jpg"
-        alt="Dormitorio proyecto Bengala San Miguel">
-    </div>
+            <h2>Construimos espacios que hacen la diferencia</h2>
 
-  </div>
+            <p>
+                Especialistas en sistema drywall y proyectos integrales,
+                ofreciendo soluciones modernas, funcionales y de calidad
+                para cada necesidad.
+            </p>
 
-  <div class="hero-content">
+            <a href="#contacto" class="button">Solicitar cotización</a>
+        </div>
+    </section>
 
-    <div class="hero-small">Soluciones integrales</div>
+    <!-- CONFIANZA -->
 
-    <h1>
-      Acondicionamiento de Ambientes
-      <span>e Infraestructura</span>
-    </h1>
+    <section class="trust">
+        <div class="trust-item">
+            <strong>Calidad</strong>
+            <span>Soluciones pensadas para durar</span>
+        </div>
 
-    <p>
-      Ejecutamos y gestionamos proyectos de habilitación,
-      remodelación y equipamiento de espacios.
-    </p>
+        <div class="trust-item">
+            <strong>Compromiso</strong>
+            <span>Trabajamos junto a nuestros clientes</span>
+        </div>
 
-    <a href="proyectos.html" class="button">
-      Conoce nuestros proyectos →
-    </a>
+        <div class="trust-item">
+            <strong>Experiencia</strong>
+            <span>Profesionalismo en cada proyecto</span>
+        </div>
+    </section>
 
-  </div>
+    <!-- QUIÉNES SOMOS -->
 
-  <div class="slider-indicators" id="indicadores">
-    <button class="active" aria-label="Mostrar imagen 1"></button>
-    <button aria-label="Mostrar imagen 2"></button>
-    <button aria-label="Mostrar imagen 3"></button>
-    <button aria-label="Mostrar imagen 4"></button>
-  </div>
+    <section class="section about-section" id="nosotros">
+        <h2>Quiénes somos</h2>
 
-</section>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    <strong>PROYEGEN S.A.C.</strong> es una empresa peruana
+                    especializada en <strong>construcción en seco, acabados
+                    y obras integrales</strong>.
+                </p>
 
-<!-- =========================
-     SERVICIOS
-========================= -->
+                <p>
+                    Contamos con amplia experiencia en el desarrollo de
+                    proyectos de arquitectura y construcción, acompañando
+                    cada etapa del proyecto, desde la planificación hasta
+                    la entrega final.
+                </p>
 
-<section class="services-strip" id="servicios">
+                <p>
+                    Nuestro compromiso es brindar soluciones que integren
+                    <strong>calidad, seguridad, sostenibilidad y eficiencia</strong>,
+                    generando valor y confianza en cada uno de nuestros clientes.
+                </p>
+            </div>
 
-  <div class="service-item">
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <rect x="10" y="9" width="29" height="47" rx="1"/>
-      <rect x="39" y="22" width="15" height="34" rx="1"/>
-      <path d="M17 17h5v5h-5z M28 17h5v5h-5z
-               M17 28h5v5h-5z M28 28h5v5h-5z
-               M17 39h5v5h-5z M28 39h5v5h-5z
-               M20 56V47h9v9 M44 30h5v5h-5z
-               M44 40h5v5h-5z"/>
-    </svg>
-    <h3>Acondicionamiento<br>de ambientes</h3>
-  </div>
+            <div class="mission-vision">
 
-  <div class="service-item">
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <path d="M7 34a25 25 0 0 1 50 0v5H7z"/>
-      <path d="M12 39v7h40v-7 M19 34V23
-               M28 34V15 M37 34V15 M46 34V23
-               M7 46h50 M25 46v5h14v-5"/>
-    </svg>
-    <h3>Infraestructura</h3>
-  </div>
+                <div class="info-box">
+                    <div class="info-icon">🎯</div>
+                    <h3>Misión</h3>
+                    <p>
+                        Brindar soluciones de construcción en
+                        <strong>sistema Drywall y obras integrales</strong>,
+                        con altos estándares de calidad, eficiencia y
+                        responsabilidad, satisfaciendo las necesidades
+                        de nuestros clientes y contribuyendo al cuidado
+                        del medio ambiente.
+                    </p>
+                </div>
 
-  <div class="service-item">
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <path d="M39 8a13 13 0 0 0-14 16L8 41a5 5 0 0 0 7 7l17-17A13 13 0 0 0 48 17l-8 8-7-7z"/>
-      <path d="m13 43 4 4 M39 39l16 16 M44 34l12 12"/>
-    </svg>
-    <h3>Servicios<br>Generales</h3>
-  </div>
+                <div class="info-box">
+                    <div class="info-icon">🏆</div>
+                    <h3>Visión</h3>
+                    <p>
+                        Ser una empresa líder y reconocida por brindar
+                        <strong>servicios sostenibles de construcción</strong>,
+                        destacando por la calidad, la seguridad, el cuidado
+                        del medio ambiente y el compromiso de nuestro equipo
+                        humano, cumpliendo con excelencia y puntualidad
+                        cada proyecto.
+                    </p>
+                </div>
 
-  <div class="service-item">
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <path d="m5 21 12-11 12 5 8-3 22 16-9 11-8-5-9 12-8-5-8-8-12-12z"/>
-      <path d="m17 10 11 12 8-10 M29 45l9-11
-               M37 49l8-11 M45 43l7-8
-               M26 17l-8 10 13 14 8-9"/>
-    </svg>
-    <h3>Gestión integral<br>de proyectos</h3>
-  </div>
+            </div>
+        </div>
+    </section>
 
-</section>
+    <!-- NUESTROS PROYECTOS -->
 
-<!-- =========================
-     QUIÉNES SOMOS
-========================= -->
+    <section class="section" id="proyectos">
+        <h2>Nuestros Proyectos</h2>
 
-<section class="section about-section" id="nosotros">
-
-  <h2>Quiénes somos</h2>
-
-  <div class="about-content">
-
-    <div class="about-image">
-      <img
-        src="imagenes/PROYECTO%20DPTO%20BENGALA%20MAR%20ABIERTO%20SALA%201.png"
-        alt="Ambiente acondicionado en el proyecto Bengala Mar Abierto">
-    </div>
-
-    <div class="about-text">
-      <h3>PROYEGEN S.A.C.</h3>
-      <p>
-        Somos una empresa peruana especializada en el desarrollo de
-        proyectos de acondicionamiento, habilitación y equipamiento de
-        infraestructura, brindando soluciones integrales con altos
-        estándares de calidad, seguridad y cumplimiento.
-      </p>
-    </div>
-
-  </div>
-
-  <div class="mission-vision">
-
-    <div class="info-box">
-      <div class="info-icon" aria-hidden="true">◎</div>
-      <h3>Misión</h3>
-      <p>
-        Brindar soluciones de infraestructura que generen valor a nuestros
-        clientes, con calidad, eficiencia y responsabilidad.
-      </p>
-    </div>
-
-    <div class="info-box">
-      <div class="info-icon" aria-hidden="true">◇</div>
-      <h3>Visión</h3>
-      <p>
-        Ser una empresa referente en el sector, reconocida por la excelencia
-        en la ejecución de proyectos y la confianza de nuestros clientes.
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- =========================
-     NUESTROS PROYECTOS
-========================= -->
-
-<section class="section projects-section" id="proyectos">
-
-  <h2>Nuestros proyectos</h2>
-
-  <p class="section-intro">
-    Conoce algunos de los trabajos realizados por PROYEGEN,
-    con soluciones de acondicionamiento, infraestructura
-    y equipamiento de espacios.
-  </p>
-
-  <div class="projects-grid">
-
-    <!-- MAR ABIERTO -->
-
-    <a href="proyecto-mar-abierto.html" class="project-card">
-
-      <img
-        src="imagenes/OFICINA%20%20VTA%20BENGALA%20MAR%20ABIERTO%20PORTADA%20.png"
-        alt="Proyecto Bengala Mar Abierto">
-
-      <div class="project-card-content">
-
-        <h3>Bengala – Mar Abierto</h3>
-
-        <p>
-          Desarrollo y acondicionamiento de espacios
-          para proyectos inmobiliarios.
+        <p class="section-intro">
+            Conoce algunos de nuestros proyectos realizados,
+            desarrollados con soluciones en construcción en seco,
+            casetas de ventas, acabados y obras integrales.
         </p>
 
-        <span class="project-link">Ver proyecto →</span>
+        <div class="projects-grid">
 
-      </div>
+            <!-- PROYECTO 1 -->
 
-    </a>
+            <div class="project-card">
+                <img
+                    src="imagenes/OFICINA  VTA BENGALA MAR ABIERTO PORTADA .png"
+                    alt="OFICINA VTA BENGALA MAR ABIERTO PORTADA"
+                >
 
-    <!-- SAN MIGUEL -->
+                <div class="project-card-content">
+                    <h3>Caseta Inmobiliaria Bengala</h3>
+                    <p>
+                        Diseño y ejecución de caseta de ventas
+                        para proyectos inmobiliarios.
+                    </p>
+                </div>
+            </div>
 
-    <a href="proyecto-san-miguel-bengala.html" class="project-card">
+            <!-- PROYECTO 2 -->
 
-      <img
-        src="imagenes/BengalaSanMiguel/Proy-bengala-san-miguel-dormitorio1-1.jpg"
-        alt="Proyecto Bengala San Miguel">
+            <div class="project-card">
+                <img
+                    src="imagenes/Construccion TerrenoMarabierto.jpg"
+                    alt="Construcción Terreno Mar Abierto"
+                >
 
-      <div class="project-card-content">
+                <div class="project-card-content">
+                    <h3>Oficina de Ventas – Mar Abierto</h3>
+                    <p>
+                        Desarrollo de espacios funcionales
+                        para proyectos inmobiliarios.
+                    </p>
+                </div>
+            </div>
 
-        <h3>Bengala – San Miguel</h3>
+            <!-- PROYECTO 3 -->
 
-        <p>
-          Acondicionamiento de ambientes y ejecución
-          de trabajos de implementación.
+            <div class="project-card">
+                <img
+                    src="imagenes/PROYECTO DPTO BENGALA MAR ABIERTO COCINA .jpeg"
+                    alt="Proyecto de construcción Proyegen"
+                >
+
+                <div class="project-card-content">
+                    <h3>Proyecto de Construcción</h3>
+                    <p>
+                        Soluciones constructivas y acabados
+                        desarrollados por Proyegen.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+
+    <section class="section" id="servicios">
+        <h2>Nuestros servicios</h2>
+
+        <p class="section-intro">
+            Ofrecemos soluciones para diferentes necesidades de
+            construcción, implementación y remodelación.
         </p>
 
-        <span class="project-link">Ver proyecto →</span>
+        <div class="cards">
 
-      </div>
+            <div class="card">
+                <div class="card-icon">🏗️</div>
+                <h3>Sistema Drywall</h3>
+                <p>
+                    Diseño y ejecución de soluciones en drywall
+                    para oficinas, viviendas, comercios y otros
+                    espacios.
+                </p>
+            </div>
 
-    </a>
+            <div class="card">
+                <div class="card-icon">🏢</div>
+                <h3>Proyectos integrales</h3>
+                <p>
+                    Desarrollo de proyectos desde la planificación
+                    hasta la ejecución, buscando eficiencia y
+                    funcionalidad.
+                </p>
+            </div>
 
-    <!-- RPP -->
+            <div class="card">
+                <div class="card-icon">🔨</div>
+                <h3>Remodelaciones</h3>
+                <p>
+                    Transformamos y renovamos espacios para
+                    adaptarlos a nuevas necesidades y
+                    requerimientos.
+                </p>
+            </div>
 
-    <a href="proyecto-rpp.html" class="project-card">
+            <div class="card">
+                <div class="card-icon">🧱</div>
+                <h3>Tabiquería</h3>
+                <p>
+                    Instalación de tabiquería y soluciones para
+                    distribución y aprovechamiento de espacios.
+                </p>
+            </div>
 
-      <img
-        src="imagenes/rpp/proy-rpp-f1.png"
-        alt="Acondicionamiento de comedor RPP">
+            <div class="card">
+                <div class="card-icon">⬜</div>
+                <h3>Cielos rasos</h3>
+                <p>
+                    Soluciones de cielos rasos para mejorar la
+                    estética, funcionalidad y acabado de los
+                    ambientes.
+                </p>
+            </div>
 
-      <div class="project-card-content">
+            <div class="card">
+                <div class="card-icon">🏢</div>
+                <h3>Casetas de venta</h3>
+                <p>
+                    Diseño y ejecución de casetas de venta para
+                    proyectos inmobiliarios, adaptadas a las necesidades
+                    de cada desarrollo, con soluciones funcionales,
+                    modernas y de calidad.
+                </p>
+            </div>
 
-        <h3>Acondicionamiento de Comedor – RPP</h3>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+
+    <section class="cta" id="contacto">
+        <h2>¿Tienes un proyecto en mente?</h2>
 
         <p>
-          Trabajos de acondicionamiento y ejecución
-          de ambientes para comedor.
+            Conversemos sobre tu proyecto y encontremos
+            la solución constructiva adecuada para tus necesidades.
         </p>
 
-        <span class="project-link">Ver proyecto →</span>
+        <a href="mailto:contacto@proyegen.com" class="button">
+            Solicitar información
+        </a>
+    </section>
 
-      </div>
+    <!-- FOOTER -->
 
-    </a>
+    <footer>
+        <p>
+            © 2026 Proyegen S.A.C. · Sistema Drywall · Proyectos Integrales
+        </p>
+    </footer>
 
-  </div>
+    <!-- JAVASCRIPT -->
 
-  <div style="text-align:center; margin-top:35px;">
-    <a href="proyectos.html" class="button">
-      Ver todos los proyectos →
-    </a>
-  </div>
+    <script>
+        let slides = document.querySelectorAll(".slide");
+        let currentSlide = 0;
 
-</section>
+        function cambiarSlide() {
+            slides[currentSlide].classList.remove("active");
 
-<!-- =========================
-     CONTACTO
-========================= -->
+            currentSlide++;
 
-<section class="cta" id="contacto">
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
 
-  <h2>¿Tienes un proyecto en mente?</h2>
+            slides[currentSlide].classList.add("active");
+        }
 
-  <p>
-    Conversemos sobre tu proyecto y encontremos
-    la solución adecuada para tus necesidades.
-  </p>
-
-  <a href="mailto:contacto@proyegen.com" class="button">
-    Solicitar información
-  </a>
-
-</section>
-
-<!-- =========================
-     PIE DE PÁGINA
-========================= -->
-
-<footer>
-
-  <p>
-    © 2026 PROYEGEN S.A.C. · Soluciones Integrales
-  </p>
-
-</footer>
-
-<!-- =========================
-     JAVASCRIPT: PORTADA
-========================= -->
-
-<script>
-
-  const slides = document.querySelectorAll(".slide");
-  const indicadores = document.querySelectorAll("#indicadores button");
-
-  let currentSlide = 0;
-  let temporizador;
-
-  function mostrarSlide(indice) {
-
-    slides[currentSlide].classList.remove("active");
-    indicadores[currentSlide].classList.remove("active");
-
-    currentSlide = indice;
-
-    slides[currentSlide].classList.add("active");
-    indicadores[currentSlide].classList.add("active");
-
-  }
-
-  function siguienteSlide() {
-
-    let siguiente = (currentSlide + 1) % slides.length;
-    mostrarSlide(siguiente);
-
-  }
-
-  function iniciarRotacion() {
-
-    clearInterval(temporizador);
-
-    temporizador = setInterval(siguienteSlide, 8000);
-
-  }
-
-  indicadores.forEach((indicador, indice) => {
-
-    indicador.addEventListener("click", function() {
-
-      mostrarSlide(indice);
-      iniciarRotacion();
-
-    });
-
-  });
-
-  iniciarRotacion();
-
-</script>
+        setInterval(cambiarSlide, 7000);
+    </script>
 
 </body>
 </html>
