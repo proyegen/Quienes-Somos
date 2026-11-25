@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acondicionamiento de Comedor RPP | PROYEGEN S.A.C.</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #263445;
+      background: #f5f7fa;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #102b50;
+      padding: 15px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo {
+      width: 180px;
+      height: auto;
+      display: block;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      margin-left: 22px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #f59e0b;
+    }
+
+    .hero {
+      background: linear-gradient(120deg, #102b50, #1c426e);
+      color: white;
+      padding: 65px 8%;
+      text-align: center;
+    }
+
+    .hero .etiqueta {
+      display: inline-block;
+      color: #f59e0b;
+      border: 1px solid #f59e0b;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+      color: #e5edf6;
+      font-size: 16px;
+    }
+
+    .contenido {
+      max-width: 1250px;
+      margin: auto;
+      padding: 50px 25px;
+    }
+
+    .introduccion {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto 40px;
+    }
+
+    .introduccion h2 {
+      color: #102b50;
+      font-size: 27px;
+      margin-bottom: 12px;
+    }
+
+    .linea {
+      width: 65px;
+      height: 4px;
+      background: #f59e0b;
+      margin: 15px auto 20px;
+      border-radius: 5px;
+    }
+
+    .introduccion p {
+      color: #5b6675;
+      font-size: 15px;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .foto {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(16, 43, 80, 0.10);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+    }
+
+    .foto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 22px rgba(16, 43, 80, 0.17);
+    }
+
+    .foto img {
+      width: 100%;
+      height: 245px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .foto p {
+      padding: 13px 15px;
+      color: #102b50;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .volver {
+      text-align: center;
+      margin-top: 45px;
+    }
+
+    .volver a {
+      display: inline-block;
+      background: #102b50;
+      color: white;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .volver a:hover {
+      background: #f59e0b;
+      color: #102b50;
+    }
+
+    footer {
+      background: #102b50;
+      color: #dce5ef;
+      text-align: center;
+      padding: 22px 15px;
+      font-size: 13px;
+      margin-top: 30px;
+    }
+
+    /* Visor de fotografías */
+    .visor {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 35px;
+    }
+
+    .visor img {
+      max-width: 95%;
+      max-height: 88vh;
+      object-fit: contain;
+    }
+
+    .cerrar {
+      position: absolute;
+      top: 15px;
+      right: 30px;
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    @media (max-width: 850px) {
+      .galeria {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      header {
+        justify-content: center;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        margin: 0 9px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .galeria {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 45px 20px;
+      }
+
+      .hero h1 {
+        font-size: 27px;
+      }
+
+      .foto img {
+        height: 230px;
+      }
+
+      .logo {
+        width: 155px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="index.html">
+      <img class="logo" src="imagenes/LogBlancoN.png" alt="PROYEGEN S.A.C.">
+    </a>
+
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="proyectos.html">Proyectos</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <span class="etiqueta">PROYECTO EJECUTADO</span>
+    <h1>Acondicionamiento de Comedor – RPP</h1>
+    <p>
+      Registro fotográfico de los trabajos realizados para el
+      acondicionamiento de los ambientes del comedor.
+    </p>
+  </section>
+
+  <main class="contenido">
+
+    <section class="introduccion">
+      <h2>Galería del proyecto</h2>
+      <div class="linea"></div>
+      <p>
+        A continuación, presentamos una selección de fotografías
+        que muestran los trabajos y ambientes correspondientes
+        al proyecto de acondicionamiento del comedor de RPP.
+      </p>
+    </section>
+
+    <section class="galeria">
+
+      <div class="foto" onclick="ampliar(this)">
+        <img src="imagenes/rpp/proy-rpp-f1.png" alt="Proyecto RPP - Fotografía 1">
+        <p>Vista del proyecto – 01</p>
+      </div>
+
+      <div class="foto" onclick="ampliar(this)">
+        <img src="imagenes/rpp/proy-rpp-f2.png" alt="Proyecto RPP - Fotografía 2">
+        <p>Vista del proyecto – 02</p>
+      </div>
+
+      <div class="foto" onclick="ampliar(this)">
+        <img src="imagenes/rpp/proy-rpp-f3.png" alt="Proyecto RPP - Fotografía 3">
+        <p>Vista del proyecto – 03</p>
+      </div>
+
+      <div class="foto" onclick="ampliar(this)">
+        <img src="imagenes/rpp/proy-rpp-f4.png" alt="Proyecto RPP - Fotografía 4">
+        <p>Vista del proyecto – 04</p>
+      </div>
+
+      <div class="foto" onclick="ampliar(this)">
+        <img src="imagenes/rpp/proy-rpp-f5.png" alt="Proyecto RPP - Fotografía 5">
+        <p>Vista del proyecto – 05</p>
+      </div>
+
+      <div class="foto" onclick="ampliar(this)">
+        <img src="imagenes/rpp/proy-rpp-f6.png" alt="Proyecto RPP - Fotografía 6">
+        <p>Vista del proyecto – 06</p>
+      </div>
+
+      <div class="foto" onclick="ampliar(this)">
+        <img src="imagenes/rpp/proy-rpp-f7.png" alt="Proyecto RPP - Fotografía 7">
+        <p>Vista del proyecto – 07</p>
+      </div>
+
+      <div class="foto" onclick="ampliar(this)">
+        <img src="imagenes/rpp/proy-rpp-f8.png" alt="Proyecto RPP - Fotografía 8">
+        <p>Vista del proyecto – 08</p>
+      </div>
+
+      <div class="foto" onclick="ampliar(this)">
+        <img src="imagenes/rpp/proy-rpp-f9.png" alt="Proyecto RPP - Fotografía 9">
+        <p>Vista del proyecto – 09</p>
+      </div>
+
+      <div class="foto" onclick="ampliar(this)">
+        <img src="imagenes/rpp/proy-rpp-f010.png" alt="Proyecto RPP - Fotografía 10">
+        <p>Vista del proyecto – 10</p>
+      </div>
+
+      <div class="foto" onclick="ampliar(this)">
+        <img src="imagenes/rpp/proy-rpp-f011.png" alt="Proyecto RPP - Fotografía 11">
+        <p>Vista del proyecto – 11</p>
+      </div>
+
+      <div class="foto" onclick="ampliar(this)">
+        <img src="imagenes/rpp/proy-rpp-f012.png" alt="Proyecto RPP - Fotografía 12">
+        <p>Vista del proyecto – 12</p>
+      </div>
+
+      <div class="foto" onclick="ampliar(this)">
+        <img src="imagenes/rpp/proy-rpp-f013.png" alt="Proyecto RPP - Fotografía 13">
+        <p>Vista del proyecto – 13</p>
+      </div>
+
+    </section>
+
+    <div class="volver">
+      <a href="proyectos.html">← Volver a proyectos</a>
+    </div>
+
+  </main>
+
+  <footer>
+    © 2026 PROYEGEN S.A.C. | Todos los derechos reservados.
+  </footer>
+
+  <div class="visor" id="visor" onclick="cerrarVisor()">
+    <span class="cerrar">&times;</span>
+    <img id="imagenAmpliada" src="" alt="Fotografía ampliada">
+  </div>
+
+  <script>
+    function ampliar(elemento) {
+      const imagen = elemento.querySelector("img");
+      document.getElementById("imagenAmpliada").src = imagen.src;
+      document.getElementById("visor").style.display = "flex";
+    }
+
+    function cerrarVisor() {
+      document.getElementById("visor").style.display = "none";
+    }
+
+    document.addEventListener("keydown", function(evento) {
+      if (evento.key === "Escape") {
+        cerrarVisor();
+      }
+    });
+  </script>
+
+</body>
+</html>
