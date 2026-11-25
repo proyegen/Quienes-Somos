@@ -12,61 +12,74 @@
       padding: 0;
     }
 
+    :root {
+      --azul: #102b50;
+      --naranja: #f59e0b;
+      --fondo: #f3f5f8;
+      --blanco: #ffffff;
+      --texto: #263445;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
-      color: #263445;
-      background: #f5f7fa;
+      color: var(--texto);
+      background: var(--fondo);
       line-height: 1.6;
     }
 
+    /* ENCABEZADO */
+
     header {
-      background: #102b50;
-      padding: 15px 7%;
+      background: var(--blanco);
+      padding: 12px 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
+      border-bottom: 3px solid var(--naranja);
     }
 
     .logo {
-      width: 180px;
+      width: 190px;
       height: auto;
+      object-fit: contain;
       display: block;
     }
 
     nav a {
-      color: white;
+      color: var(--azul);
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
       margin-left: 22px;
       font-weight: bold;
     }
 
     nav a:hover {
-      color: #f59e0b;
+      color: var(--naranja);
     }
+
+    /* PORTADA */
 
     .hero {
       background: linear-gradient(120deg, #102b50, #1c426e);
       color: white;
-      padding: 65px 8%;
+      padding: 55px 8%;
       text-align: center;
     }
 
     .hero .etiqueta {
       display: inline-block;
-      color: #f59e0b;
-      border: 1px solid #f59e0b;
+      color: var(--naranja);
+      border: 1px solid var(--naranja);
       padding: 5px 15px;
       border-radius: 20px;
-      font-size: 13px;
+      font-size: 12px;
       margin-bottom: 15px;
       letter-spacing: 1px;
+      font-weight: bold;
     }
 
     .hero h1 {
-      font-size: 36px;
+      font-size: 34px;
       margin-bottom: 12px;
     }
 
@@ -74,38 +87,54 @@
       max-width: 750px;
       margin: auto;
       color: #e5edf6;
-      font-size: 16px;
+      font-size: 15px;
     }
+
+    /* CONTENIDO */
 
     .contenido {
       max-width: 1250px;
       margin: auto;
-      padding: 50px 25px;
+      padding: 45px 25px;
     }
 
     .introduccion {
       text-align: center;
       max-width: 850px;
-      margin: 0 auto 40px;
+      margin: 0 auto 45px;
     }
 
     .introduccion h2 {
-      color: #102b50;
-      font-size: 27px;
+      color: var(--azul);
+      font-size: 26px;
       margin-bottom: 12px;
     }
 
     .linea {
       width: 65px;
       height: 4px;
-      background: #f59e0b;
+      background: var(--naranja);
       margin: 15px auto 20px;
       border-radius: 5px;
     }
 
     .introduccion p {
       color: #5b6675;
-      font-size: 15px;
+      font-size: 14px;
+    }
+
+    /* SECCIONES */
+
+    .seccion {
+      margin-bottom: 55px;
+    }
+
+    .titulo-seccion {
+      color: var(--azul);
+      font-size: 24px;
+      border-left: 5px solid var(--naranja);
+      padding-left: 15px;
+      margin-bottom: 25px;
     }
 
     .galeria {
@@ -115,17 +144,17 @@
     }
 
     .foto {
-      background: white;
-      border-radius: 10px;
+      background: var(--blanco);
+      border-radius: 9px;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(16, 43, 80, 0.10);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.09);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       cursor: pointer;
     }
 
     .foto:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 22px rgba(16, 43, 80, 0.17);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(16,43,80,0.15);
     }
 
     .foto img {
@@ -136,52 +165,59 @@
     }
 
     .foto p {
-      padding: 13px 15px;
-      color: #102b50;
+      padding: 12px 15px;
+      color: var(--azul);
       font-weight: bold;
-      font-size: 14px;
+      font-size: 13px;
     }
+
+    /* BOTÓN VOLVER */
 
     .volver {
       text-align: center;
-      margin-top: 45px;
+      margin-top: 40px;
+      margin-bottom: 15px;
     }
 
     .volver a {
       display: inline-block;
-      background: #102b50;
+      background: var(--azul);
       color: white;
       text-decoration: none;
-      padding: 12px 28px;
+      padding: 12px 27px;
       border-radius: 5px;
+      font-size: 13px;
       font-weight: bold;
       transition: background 0.2s;
     }
 
     .volver a:hover {
-      background: #f59e0b;
-      color: #102b50;
+      background: var(--naranja);
+      color: var(--azul);
     }
 
+    /* PIE DE PÁGINA */
+
     footer {
-      background: #102b50;
-      color: #dce5ef;
+      background: var(--azul);
+      color: white;
       text-align: center;
       padding: 22px 15px;
-      font-size: 13px;
+      font-size: 12px;
       margin-top: 30px;
     }
 
-    /* Visor de fotografías */
+    /* VISOR DE FOTOGRAFÍAS */
+
     .visor {
       display: none;
       position: fixed;
       z-index: 1000;
       inset: 0;
-      background: rgba(0, 0, 0, 0.92);
+      background: rgba(0,0,0,0.92);
       align-items: center;
       justify-content: center;
-      padding: 35px;
+      padding: 30px;
     }
 
     .visor img {
@@ -200,27 +236,28 @@
       line-height: 1;
     }
 
+    /* DISEÑO RESPONSIVO */
+
     @media (max-width: 850px) {
       .galeria {
         grid-template-columns: repeat(2, 1fr);
       }
-
-      header {
-        justify-content: center;
-      }
-
-      nav {
-        text-align: center;
-      }
-
-      nav a {
-        margin: 0 9px;
-      }
     }
 
     @media (max-width: 550px) {
-      .galeria {
-        grid-template-columns: 1fr;
+      header {
+        padding: 12px 4%;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .logo {
+        width: 150px;
+      }
+
+      nav a {
+        margin: 0 10px;
+        font-size: 12px;
       }
 
       .hero {
@@ -228,15 +265,19 @@
       }
 
       .hero h1 {
-        font-size: 27px;
+        font-size: 26px;
+      }
+
+      .galeria {
+        grid-template-columns: 1fr;
       }
 
       .foto img {
         height: 230px;
       }
 
-      .logo {
-        width: 155px;
+      .titulo-seccion {
+        font-size: 21px;
       }
     }
   </style>
@@ -244,9 +285,13 @@
 
 <body>
 
+  <!-- ENCABEZADO -->
+
   <header>
     <a href="index.html">
-      <img class="logo" src="imagenes/LogBlancoN.png" alt="PROYEGEN S.A.C.">
+      <img class="logo"
+           src="imagenes/logcolorProyegen.jpg"
+           alt="PROYEGEN S.A.C.">
     </a>
 
     <nav>
@@ -254,6 +299,8 @@
       <a href="proyectos.html">Proyectos</a>
     </nav>
   </header>
+
+  <!-- PORTADA -->
 
   <section class="hero">
     <span class="etiqueta">PROYECTO EJECUTADO</span>
@@ -266,84 +313,106 @@
 
   <main class="contenido">
 
+    <!-- INTRODUCCIÓN -->
+
     <section class="introduccion">
       <h2>Galería del proyecto</h2>
       <div class="linea"></div>
       <p>
-        A continuación, presentamos una selección de fotografías
-        que muestran los trabajos y ambientes correspondientes
-        al proyecto de acondicionamiento del comedor de RPP.
+        Presentamos los trabajos realizados para el acondicionamiento
+        del comedor de RPP, organizados en dos etapas: acondicionamiento
+        de ambientes y proceso de ejecución.
       </p>
     </section>
 
-    <section class="galeria">
+    <!-- 1. ACONDICIONAMIENTO -->
 
-      <div class="foto" onclick="ampliar(this)">
-        <img src="imagenes/rpp/proy-rpp-f1.png" alt="Proyecto RPP - Fotografía 1">
-        <p>Vista del proyecto – 01</p>
+    <section class="seccion">
+
+      <h2 class="titulo-seccion">1. Acondicionamiento</h2>
+
+      <div class="galeria">
+
+        <div class="foto" onclick="ampliar(this)">
+          <img src="imagenes/rpp/proy-rpp-f1.png" alt="Acondicionamiento RPP 1">
+          <p>Acondicionamiento – Vista 01</p>
+        </div>
+
+        <div class="foto" onclick="ampliar(this)">
+          <img src="imagenes/rpp/proy-rpp-f2.png" alt="Acondicionamiento RPP 2">
+          <p>Acondicionamiento – Vista 02</p>
+        </div>
+
+        <div class="foto" onclick="ampliar(this)">
+          <img src="imagenes/rpp/proy-rpp-f3.png" alt="Acondicionamiento RPP 3">
+          <p>Acondicionamiento – Vista 03</p>
+        </div>
+
+        <div class="foto" onclick="ampliar(this)">
+          <img src="imagenes/rpp/proy-rpp-f4.png" alt="Acondicionamiento RPP 4">
+          <p>Acondicionamiento – Vista 04</p>
+        </div>
+
+        <div class="foto" onclick="ampliar(this)">
+          <img src="imagenes/rpp/proy-rpp-f5.png" alt="Acondicionamiento RPP 5">
+          <p>Acondicionamiento – Vista 05</p>
+        </div>
+
+        <div class="foto" onclick="ampliar(this)">
+          <img src="imagenes/rpp/proy-rpp-f6.png" alt="Acondicionamiento RPP 6">
+          <p>Acondicionamiento – Vista 06</p>
+        </div>
+
       </div>
-
-      <div class="foto" onclick="ampliar(this)">
-        <img src="imagenes/rpp/proy-rpp-f2.png" alt="Proyecto RPP - Fotografía 2">
-        <p>Vista del proyecto – 02</p>
-      </div>
-
-      <div class="foto" onclick="ampliar(this)">
-        <img src="imagenes/rpp/proy-rpp-f3.png" alt="Proyecto RPP - Fotografía 3">
-        <p>Vista del proyecto – 03</p>
-      </div>
-
-      <div class="foto" onclick="ampliar(this)">
-        <img src="imagenes/rpp/proy-rpp-f4.png" alt="Proyecto RPP - Fotografía 4">
-        <p>Vista del proyecto – 04</p>
-      </div>
-
-      <div class="foto" onclick="ampliar(this)">
-        <img src="imagenes/rpp/proy-rpp-f5.png" alt="Proyecto RPP - Fotografía 5">
-        <p>Vista del proyecto – 05</p>
-      </div>
-
-      <div class="foto" onclick="ampliar(this)">
-        <img src="imagenes/rpp/proy-rpp-f6.png" alt="Proyecto RPP - Fotografía 6">
-        <p>Vista del proyecto – 06</p>
-      </div>
-
-      <div class="foto" onclick="ampliar(this)">
-        <img src="imagenes/rpp/proy-rpp-f7.png" alt="Proyecto RPP - Fotografía 7">
-        <p>Vista del proyecto – 07</p>
-      </div>
-
-      <div class="foto" onclick="ampliar(this)">
-        <img src="imagenes/rpp/proy-rpp-f8.png" alt="Proyecto RPP - Fotografía 8">
-        <p>Vista del proyecto – 08</p>
-      </div>
-
-      <div class="foto" onclick="ampliar(this)">
-        <img src="imagenes/rpp/proy-rpp-f9.png" alt="Proyecto RPP - Fotografía 9">
-        <p>Vista del proyecto – 09</p>
-      </div>
-
-      <div class="foto" onclick="ampliar(this)">
-        <img src="imagenes/rpp/proy-rpp-f010.png" alt="Proyecto RPP - Fotografía 10">
-        <p>Vista del proyecto – 10</p>
-      </div>
-
-      <div class="foto" onclick="ampliar(this)">
-        <img src="imagenes/rpp/proy-rpp-f011.png" alt="Proyecto RPP - Fotografía 11">
-        <p>Vista del proyecto – 11</p>
-      </div>
-
-      <div class="foto" onclick="ampliar(this)">
-        <img src="imagenes/rpp/proy-rpp-f012.png" alt="Proyecto RPP - Fotografía 12">
-        <p>Vista del proyecto – 12</p>
-      </div>
-
-      <div class="foto" onclick="ampliar(this)">
-        <img src="imagenes/rpp/proy-rpp-f013.png" alt="Proyecto RPP - Fotografía 13">
-        <p>Vista del proyecto – 13</p>
-      </div>
-
     </section>
+
+    <!-- 2. PROCESO DE EJECUCIÓN -->
+
+    <section class="seccion">
+
+      <h2 class="titulo-seccion">2. Proceso de ejecución</h2>
+
+      <div class="galeria">
+
+        <div class="foto" onclick="ampliar(this)">
+          <img src="imagenes/rpp/proy-rpp-f7.png" alt="Proceso de ejecución RPP 7">
+          <p>Proceso de ejecución – Vista 01</p>
+        </div>
+
+        <div class="foto" onclick="ampliar(this)">
+          <img src="imagenes/rpp/proy-rpp-f8.png" alt="Proceso de ejecución RPP 8">
+          <p>Proceso de ejecución – Vista 02</p>
+        </div>
+
+        <div class="foto" onclick="ampliar(this)">
+          <img src="imagenes/rpp/proy-rpp-f9.png" alt="Proceso de ejecución RPP 9">
+          <p>Proceso de ejecución – Vista 03</p>
+        </div>
+
+        <div class="foto" onclick="ampliar(this)">
+          <img src="imagenes/rpp/proy-rpp-f010.png" alt="Proceso de ejecución RPP 10">
+          <p>Proceso de ejecución – Vista 04</p>
+        </div>
+
+        <div class="foto" onclick="ampliar(this)">
+          <img src="imagenes/rpp/proy-rpp-f011.png" alt="Proceso de ejecución RPP 11">
+          <p>Proceso de ejecución – Vista 05</p>
+        </div>
+
+        <div class="foto" onclick="ampliar(this)">
+          <img src="imagenes/rpp/proy-rpp-f012.png" alt="Proceso de ejecución RPP 12">
+          <p>Proceso de ejecución – Vista 06</p>
+        </div>
+
+        <div class="foto" onclick="ampliar(this)">
+          <img src="imagenes/rpp/proy-rpp-f013.png" alt="Proceso de ejecución RPP 13">
+          <p>Proceso de ejecución – Vista 07</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VOLVER A PROYECTOS -->
 
     <div class="volver">
       <a href="proyectos.html">← Volver a proyectos</a>
@@ -351,9 +420,13 @@
 
   </main>
 
+  <!-- PIE DE PÁGINA -->
+
   <footer>
     © 2026 PROYEGEN S.A.C. | Todos los derechos reservados.
   </footer>
+
+  <!-- VISOR DE FOTOGRAFÍAS -->
 
   <div class="visor" id="visor" onclick="cerrarVisor()">
     <span class="cerrar">&times;</span>
