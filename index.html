@@ -128,7 +128,7 @@ nav a.activo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center center;
   animation: movimientoLento 12s ease-in-out both;
 }
 
@@ -137,9 +137,12 @@ nav a.activo {
     transform: scale(1);
   }
   to {
-    transform: scale(1.09);
+    transform: scale(1.01);
   }
 }
+
+/* Degradado azul más transparente:
+   permite apreciar mejor las fotografías */
 
 .hero::after {
   content: "";
@@ -148,9 +151,9 @@ nav a.activo {
   z-index: 1;
   background: linear-gradient(
     90deg,
-    rgba(16,43,80,0.96) 0%,
-    rgba(16,43,80,0.83) 38%,
-    rgba(16,43,80,0.22) 100%
+    rgba(16,43,80,0.48) 0%,
+    rgba(16,43,80,0.25) 38%,
+    rgba(16,43,80,0.02) 100%
   );
 }
 
@@ -277,46 +280,70 @@ nav a.activo {
 ========================= */
 
 .section {
-  padding: 70px 7%;
+  padding: 65px 7%;
 }
 
 .section h2 {
+  color: var(--azul);
   text-align: center;
   font-size: 32px;
-  color: var(--azul);
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .section h2::after {
   content: "";
   display: block;
-  width: 55px;
-  height: 4px;
+  width: 65px;
+  height: 3px;
   background: var(--naranja);
-  margin: 12px auto 0;
-  border-radius: 5px;
+  margin: 12px auto 35px;
+}
+
+.section-intro {
+  max-width: 760px;
+  margin: 0 auto 35px;
+  text-align: center;
+  color: #667085;
+  line-height: 1.7;
 }
 
 .about-section {
-  background: var(--gris);
+  background: #ffffff;
+  padding-bottom: 0;
 }
 
 .about-content {
-  max-width: 1100px;
-  margin: auto;
+  max-width: 1150px;
+  margin: 0 auto 55px;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: center;
+  gap: 45px;
+}
+
+.about-image img {
+  display: block;
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
 }
 
 .about-text {
-  max-width: 900px;
-  margin: 0 auto 35px;
-  text-align: center;
+  text-align: left;
+}
+
+.about-text h3 {
+  color: var(--azul);
+  font-size: 25px;
+  margin-bottom: 16px;
 }
 
 .about-text p {
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.85;
   color: #555;
-  margin-bottom: 15px;
 }
 
 .about-text strong {
@@ -324,33 +351,37 @@ nav a.activo {
 }
 
 .mission-vision {
+  background: var(--azul);
+  color: #ffffff;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 38px max(7%, calc((100% - 1150px) / 2));
+  gap: 0;
 }
 
 .info-box {
-  background: white;
-  padding: 30px;
-  border-radius: 8px;
+  padding: 10px 42px;
   text-align: center;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
-  border-top: 4px solid var(--naranja);
+}
+
+.info-box + .info-box {
+  border-left: 1px solid rgba(255,255,255,0.35);
 }
 
 .info-icon {
-  font-size: 35px;
-  margin-bottom: 12px;
+  color: var(--naranja);
+  font-size: 32px;
+  margin-bottom: 8px;
 }
 
 .info-box h3 {
-  color: var(--azul);
+  color: #ffffff;
   font-size: 22px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .info-box p {
-  color: #626b78;
+  color: #e5eaf0;
   font-size: 14px;
   line-height: 1.8;
 }
@@ -361,15 +392,6 @@ nav a.activo {
 
 .projects-section {
   background: var(--gris);
-}
-
-.section-intro {
-  max-width: 800px;
-  margin: 0 auto 38px;
-  text-align: center;
-  line-height: 1.8;
-  font-size: 16px;
-  color: #5b6675;
 }
 
 .projects-grid {
@@ -466,7 +488,6 @@ footer {
 ========================= */
 
 @media (max-width: 900px) {
-
   header {
     padding: 10px 4%;
   }
@@ -485,7 +506,6 @@ footer {
 }
 
 @media (max-width: 650px) {
-
   header {
     position: relative;
     flex-direction: column;
@@ -520,12 +540,15 @@ footer {
     align-items: flex-end;
   }
 
+  /* En móvil el degradado se concentra
+     en la zona inferior, detrás del texto */
+
   .hero::after {
     background: linear-gradient(
       0deg,
-      rgba(16,43,80,0.97) 0%,
-      rgba(16,43,80,0.80) 48%,
-      rgba(16,43,80,0.20) 100%
+      rgba(16,43,80,0.58) 0%,
+      rgba(16,43,80,0.28) 48%,
+      rgba(16,43,80,0.02) 100%
     );
   }
 
@@ -551,7 +574,17 @@ footer {
     bottom: 15px;
   }
 
-  /* SERVICIOS EN DOS COLUMNAS PARA CELULAR */
+  .section {
+    padding: 50px 20px;
+  }
+
+  .section h2 {
+    font-size: 27px;
+  }
+
+  .section-intro {
+    font-size: 14px;
+  }
 
   .services-strip {
     grid-template-columns: repeat(2, 1fr);
@@ -580,28 +613,32 @@ footer {
     height: 45px;
   }
 
-  .section {
-    padding: 50px 20px;
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 35px;
   }
 
-  .section h2 {
-    font-size: 27px;
+  .about-image img {
+    height: 250px;
   }
 
-  .section-intro {
-    font-size: 14px;
-  }
-
-  .about-text {
-    text-align: left;
+  .about-text h3 {
+    font-size: 22px;
   }
 
   .mission-vision {
     grid-template-columns: 1fr;
+    padding: 25px 20px;
   }
 
   .info-box {
-    padding: 25px 20px;
+    padding: 25px 10px;
+  }
+
+  .info-box + .info-box {
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,0.35);
   }
 
   .projects-grid {
@@ -629,7 +666,6 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   html {
     scroll-behavior: auto;
   }
@@ -738,7 +774,6 @@ footer {
 <section class="services-strip" id="servicios">
 
   <div class="service-item">
-
     <svg viewBox="0 0 64 64" aria-hidden="true">
       <rect x="10" y="9" width="29" height="47" rx="1"/>
       <rect x="39" y="22" width="15" height="34" rx="1"/>
@@ -748,46 +783,35 @@ footer {
                M20 56V47h9v9 M44 30h5v5h-5z
                M44 40h5v5h-5z"/>
     </svg>
-
     <h3>Acondicionamiento<br>de ambientes</h3>
-
   </div>
 
   <div class="service-item">
-
     <svg viewBox="0 0 64 64" aria-hidden="true">
       <path d="M7 34a25 25 0 0 1 50 0v5H7z"/>
       <path d="M12 39v7h40v-7 M19 34V23
                M28 34V15 M37 34V15 M46 34V23
                M7 46h50 M25 46v5h14v-5"/>
     </svg>
-
     <h3>Infraestructura</h3>
-
   </div>
 
   <div class="service-item">
-
     <svg viewBox="0 0 64 64" aria-hidden="true">
       <path d="M39 8a13 13 0 0 0-14 16L8 41a5 5 0 0 0 7 7l17-17A13 13 0 0 0 48 17l-8 8-7-7z"/>
       <path d="m13 43 4 4 M39 39l16 16 M44 34l12 12"/>
     </svg>
-
     <h3>Servicios<br>Generales</h3>
-
   </div>
 
   <div class="service-item">
-
     <svg viewBox="0 0 64 64" aria-hidden="true">
       <path d="m5 21 12-11 12 5 8-3 22 16-9 11-8-5-9 12-8-5-8-8-12-12z"/>
       <path d="m17 10 11 12 8-10 M29 45l9-11
                M37 49l8-11 M45 43l7-8
                M26 17l-8 10 13 14 8-9"/>
     </svg>
-
     <h3>Gestión integral<br>de proyectos</h3>
-
   </div>
 
 </section>
@@ -802,63 +826,42 @@ footer {
 
   <div class="about-content">
 
-    <div class="about-text">
-
-      <p>
-        <strong>PROYEGEN S.A.C.</strong> es una empresa peruana
-        especializada en construcción en seco, acabados
-        y obras integrales.
-      </p>
-
-      <p>
-        Contamos con experiencia en el desarrollo de proyectos
-        de arquitectura y construcción, acompañando cada etapa
-        desde la planificación hasta la entrega final.
-      </p>
-
-      <p>
-        Nuestro compromiso es brindar soluciones que integren
-        <strong>calidad, seguridad, sostenibilidad y eficiencia</strong>,
-        generando valor y confianza en nuestros clientes.
-      </p>
-
+    <div class="about-image">
+      <img
+        src="imagenes/PROYECTO%20DPTO%20BENGALA%20MAR%20ABIERTO%20SALA%201.png"
+        alt="Ambiente acondicionado en el proyecto Bengala Mar Abierto">
     </div>
 
-    <div class="mission-vision">
+    <div class="about-text">
+      <h3>PROYEGEN S.A.C.</h3>
+      <p>
+        Somos una empresa peruana especializada en el desarrollo de
+        proyectos de acondicionamiento, habilitación y equipamiento de
+        infraestructura, brindando soluciones integrales con altos
+        estándares de calidad, seguridad y cumplimiento.
+      </p>
+    </div>
 
-      <div class="info-box">
+  </div>
 
-        <div class="info-icon">🎯</div>
+  <div class="mission-vision">
 
-        <h3>Misión</h3>
+    <div class="info-box">
+      <div class="info-icon" aria-hidden="true">◎</div>
+      <h3>Misión</h3>
+      <p>
+        Brindar soluciones de infraestructura que generen valor a nuestros
+        clientes, con calidad, eficiencia y responsabilidad.
+      </p>
+    </div>
 
-        <p>
-          Brindar soluciones de construcción en
-          <strong>sistema Drywall y obras integrales</strong>,
-          con altos estándares de calidad, eficiencia y
-          responsabilidad, satisfaciendo las necesidades
-          de nuestros clientes y contribuyendo al cuidado
-          del medio ambiente.
-        </p>
-
-      </div>
-
-      <div class="info-box">
-
-        <div class="info-icon">🏆</div>
-
-        <h3>Visión</h3>
-
-        <p>
-          Ser una empresa líder y reconocida por brindar
-          <strong>servicios sostenibles de construcción</strong>,
-          destacando por la calidad, la seguridad, el cuidado
-          del medio ambiente y el compromiso de nuestro equipo,
-          cumpliendo con excelencia y puntualidad cada proyecto.
-        </p>
-
-      </div>
-
+    <div class="info-box">
+      <div class="info-icon" aria-hidden="true">◇</div>
+      <h3>Visión</h3>
+      <p>
+        Ser una empresa referente en el sector, reconocida por la excelencia
+        en la ejecución de proyectos y la confianza de nuestros clientes.
+      </p>
     </div>
 
   </div>
@@ -953,11 +956,9 @@ footer {
   </div>
 
   <div style="text-align:center; margin-top:35px;">
-
     <a href="proyectos.html" class="button">
       Ver todos los proyectos →
     </a>
-
   </div>
 
 </section>
